@@ -1,0 +1,46 @@
+{% extends "_layout" %}
+
+{% block content %}
+    {% set ourRange = entry.ourRange %}
+    
+    {% include 'sections/_slider' with {
+        items:entry.slider.all()
+    } %}
+
+    {% include "sections/_intro-text-blocks" with {
+        title: false
+    } %}
+
+    {#{{dd(craft.entries.positionedAfter('products').all())}}#}
+    {% include "sections/_list-tab" with {
+        title: 'DISCOVER OUR RANGE',
+        list: ourRange
+    } %}
+    {#{{d(ourRange[0].id)}}
+    
+    {% include "sections/_product-listing" with {
+        products: entry.children.level(3).all(),
+        title: entry.title ~ ' Products',
+        showItem:entry.children().level(3)|length < 2 ? entry.children().level(3)|length : 2,
+        showMore: true,
+        breakpoint: -1,
+        mode:'tiles'
+    } %}#}
+    
+    <div class="container">
+        <div class="col-12">
+            <h2 class="page-title">Home Industry page</h2>
+        </div>
+    </div>
+
+
+    {% include 'sections/_two-tile-links' %}
+
+    {% include "sections/_need-support" %}
+
+    {% if entry.featuredCaseStudy and entry.featuredCaseStudy|length %}
+        {% include "sections/_featured-case-study" with {
+            item: entry.featuredCaseStudy.one
+        } %}
+    {% endif %}
+{% endblock %}

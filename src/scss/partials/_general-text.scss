@@ -1,0 +1,22 @@
+.sib-general-text{
+    font-size:rem(16);
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        font-size:rem(22);
+    }
+
+    .sib-general-text__green{
+        color:$jh-green;
+        font-size:rem(22);
+        font-weight:300;
+        line-height:1.45;
+        letter-spacing:1px;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-bottom:rem(13);
+            font-size:rem(40);
+            font-weight:200;
+            line-height:1.25;
+        }
+    }
+}

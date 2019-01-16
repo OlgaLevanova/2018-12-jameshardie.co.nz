@@ -1,0 +1,20 @@
+<div class="sib-product-details">
+    <ul class="sib-product-details__links">
+        {% if entry.productAccessories is defined and entry.productAccessories|length %}
+        <li>
+            <a class="button--overlay" data-target="acce-modal">
+                Accessories
+                <span class="icm-arrow-down"></span>
+            </a>
+        </li>
+        {% endif %}
+    {% for link in links %}
+        <li>
+            <a href="{{ link.url }}">
+                {{ link.title }}
+                <span class="icm-arrow-down"></span>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

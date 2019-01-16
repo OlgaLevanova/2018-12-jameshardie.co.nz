@@ -1,0 +1,24 @@
+<div class="sib-video-block">
+    <div
+            class="sib-video-block__image button--video"
+            data-video-id="{{ block.videoId }}"
+    >
+        <img src="{{ block.videoCoverImage.one.url }}" alt="">
+
+        {% include "/partials/_hover-element" with {
+            element: "button",
+            classes: "btn btn-square1 btn-white btn-border-thick",
+            text: "PLAY VIDEO",
+            link: ""
+        } %}
+    </div>
+    <div class="sib-video-block__title">
+        {{ block.titleOnPage }}
+    </div>
+    <div class="popup-info">
+        <div class="popup-title">{{ block.popupInfo.one.sibTitle }}</div>
+        <div class="popup-subtitle">{{ block.popupInfo.one.subtitle }}</div>
+        <div class="popup-bottomTitle">{{ block.popupInfo.one.bottomTitle }}</div>
+        <div class="popup-link">{{ block.popupInfo.one.sibLink }}</div>
+    </div>
+</div>

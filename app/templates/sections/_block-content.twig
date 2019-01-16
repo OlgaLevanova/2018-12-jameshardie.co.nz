@@ -1,0 +1,15 @@
+{% for block in blocks %}
+    {% switch block.type %}
+        {% case "text" %}
+            {% include 'blocks/_text-block' %}
+
+        {% case "video" %}
+            {% include 'blocks/_video-block' %}
+
+        {% case "image" %}
+            {% include 'blocks/_image-block' %}
+
+        {% case "testimonial" %}
+            {% include 'blocks/_testimonial-block' %}
+    {% endswitch %}
+{% endfor %}

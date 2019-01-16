@@ -1,0 +1,263 @@
+.sib-we-recommend{
+    position:relative;
+    color:$white;
+
+    /*.sib-half-link__background{
+        display:flex !important;
+
+        @media all and (max-width: map-get($grid-breakpoints, md)) {
+            display:block !important;
+        }
+
+        div{
+            @media all and (max-width: map-get($grid-breakpoints, md)) {
+                width:100%;
+                height:50%;
+            }
+        }
+    }*/
+    .sib-we-recommend__header{
+        position:relative;
+        padding:rem(42) 0;
+        background:$jh-grey-light-2;
+
+        h2{
+            color:$jh-grey-dark;
+            font-family:$font-primary;
+            font-size:rem(40);
+            font-weight:bold;
+            line-height:1;
+            letter-spacing:4px;
+            text-transform:uppercase;
+        }
+        button{
+            position:absolute;
+            top:50%;
+            left:25px;
+            padding:0 0 0 rem(45);
+            margin:0;
+            color:$jh-grey-dark;
+            font-size:rem(20);
+            font-weight:bold;
+            line-height:1.1;
+            letter-spacing:0.5px;
+            text-transform:uppercase;
+            cursor:pointer;
+            background:none;
+            border:none;
+            transform:translate(0, -50%) scale(0);
+            transition:all 0.2s;
+
+            &:before{
+                position:absolute;
+                top:50%;
+                left:0;
+                font-size:rem(10);
+                content:"\e906";
+                transform:translateY(-50%) rotate(90deg);
+
+                @include icomoon();
+            }
+
+            &.active-js{
+                transform:translate(0, -50%) scale(1);
+
+                &:hover{
+                    color:$jh-green;
+                    transform:translate(-10px, -50%) scale(1);
+                }
+            }
+        }
+    }
+    .container-fluid,
+    .row{
+        padding:0;
+        margin:0;
+    }
+    .sib-we-recommend__inner{
+        position:absolute;
+        left:0;
+        z-index:2;
+        width:100%;
+        height:calc(#{map-get($we-recommend, sm)} * 2);
+        font-size:rem(18);
+        font-weight:normal;
+        line-height:1.45;
+        letter-spacing:1px;
+        text-align:center;
+        opacity:1;
+        transition:opacity 0.5s 1.2s;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            height:map-get($we-recommend, md);
+        }
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            height:map-get($we-recommend, lg);
+        }
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            font-size:rem(22);
+        }
+
+        &.disable-js{
+            z-index:0;
+            opacity:0;
+
+            &.enable-js{
+                z-index:2;
+                opacity:1;
+                transition:opacity 0.5s;
+            }
+        }
+    }
+    .sib-half-link__item{
+        height:map-get($we-recommend, sm);
+        transition:all 0.4s 0.2s ease-in-out;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            height:map-get($we-recommend, md);
+        }
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            height:map-get($we-recommend, lg);
+        }
+
+        &.active-js{
+            flex:0 0 100% !important;
+            width:100% !important;
+            max-width:100% !important;
+            opacity:1;
+        }
+
+        &.disable-js{
+            flex:0 0 0% !important;
+            width:0 !important;
+            max-width:0 !important;
+            padding:0;
+            overflow:hidden;
+            opacity:0;
+
+            .sib-we-recommend__content{
+                opacity:0;
+            }
+        }
+    }
+    h3{
+        padding-bottom:rem(14);
+        margin-bottom:rem(17);
+        font-family:$font-secondary;
+        font-size:rem(55);
+        font-weight:normal;
+        line-height:1.11;
+        letter-spacing:normal;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-bottom:rem(34);
+            margin-bottom:rem(33);
+            font-size:rem(75);
+        }
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            font-size:rem(95);
+        }
+    }
+    .sib-we-recommend__subTitle{
+        font-size:rem(22);
+        font-weight:bold;
+        line-height:1.07;
+        letter-spacing:3px;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(25);
+        }
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            font-size:rem(30);
+        }
+    }
+    .sib-we-recommend__content{
+        position:absolute;
+        top:50%;
+        left:0;
+        z-index:5;
+        width:100%;
+        padding:0 rem(30);
+        transform:translateY(-70%);
+        transition:opacity 0.2s;
+
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            transform:translateY(-50%);
+        }
+    }
+    .sib-we-recommend__button{
+        position:absolute;
+        bottom:rem(30);
+        left:0;
+        z-index:2;
+        width:100%;
+        text-align:center;
+
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            bottom:rem(50);
+        }
+    }
+    button{
+
+    }
+    .sib-we-recommend__result{
+        position:relative;
+        z-index:0;
+        color:$black;
+
+        &.active-js{
+            z-index:10;
+        }
+
+        .sib-we-recommend__result__item{
+            position:absolute;
+            z-index:0;
+            display:block;
+            width:100%;
+            height:map-get($we-recommend, sm);
+            background-color:$white;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-size:cover;
+            opacity:0;
+            transition:opacity 0.4s 1s;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                height:map-get($we-recommend, md);
+            }
+            @media all and (min-width: map-get($grid-breakpoints, xl)) {
+                height:map-get($we-recommend, lg);
+            }
+
+            &.active-js{
+                z-index:10;
+                display:block;
+                opacity:1;
+
+                &:before{
+                    right:50%;
+                    opacity:1;
+                }
+            }
+
+            .sib-we-recommend__content{
+                width:50%;
+            }
+            .sib-we-recommend__button{
+                width:50%;
+            }
+        }
+    }
+    .sib-we-recommend__text{
+        display:none;
+        height:rem(60);
+        margin-top:rem(80);
+        overflow:hidden;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            display:block;
+            height:rem(55);
+            margin-top:rem(40);
+        }
+    }
+}

@@ -1,0 +1,11 @@
+// font-family: Century Gothic
+@font-face {
+    font-family: Spectrum;
+    font-style: normal;
+    font-weight: normal;
+    src: url('/web/fonts/spectrum/Spectrum.eot');
+    src: url('/web/fonts/spectrum/Spectrum.eot?#iefix') format('embedded-opentype'),
+        url('/web/fonts/spectrum/Spectrum.woff2') format('woff2'),
+        url('/web/fonts/spectrum/Spectrum.woff') format('woff'),
+        url('/web/fonts/spectrum/Spectrum.svg#Spectrum') format('svg');
+}

@@ -1,0 +1,72 @@
+
+{% block content %}
+
+    {%- if entry.hero|length -%}
+        {% include 'sections/_slider' with {
+            items:entry.hero.all(),
+            resistants: null
+        } %}
+    {%- endif -%}
+
+    {% include "sections/_intro-title" with {
+        intro: entry.introPageTitles.one
+    } %}
+
+    {% set testimonial = null %}
+    {% if entry.testimonialEntry.one is not null %}
+        {% set testimonial = entry.testimonialEntry.one %}
+    {% endif %}
+
+    {% include "sections/_generic-text" with {
+        testimonial: testimonial
+    } %}
+
+    {% if entry.similarProjects and entry.similarProjects|length > 0 %}
+        {% include "sections/_case-study-listing" with {
+            caseStudies: entry.similarProjects.all,
+            title: 'SIMILAR PROJECTS',
+            showItem:2,
+            showMore: true,
+            breakpoint: 992,
+            mode:'both'
+        } %}
+    {% elseif entry.similarProducts and entry.similarProducts|length > 0%}
+    {# {{dd(entry.similarProducts.level(3).all())}} #}
+        {% include "sections/_product-listing" with {
+            products: entry.similarProducts.level(3).all(),
+            title: 'Similar Products',
+            showItem:entry.similarProducts.level(3)|length < 2 ? entry.similarProducts.level(3)|length : 2,
+            showMore: true,
+            breakpoint: -1,
+            mode:'tiles'
+        } %}
+    {% endif %}
+
+    {% if entry.twoTileLinks.one is defined and entry.twoTileLinks.one is not null and entry.twoTileLinks.one.background.one is not null %}
+        {% include 'sections/_two-tile-links' %}
+    {% endif %}
+
+    {% include "sections/_the-look-book" %}
+
+    {% include "sections/_need-support" %}
+
+    {% if entry.globalWeRecommend is defined and entry.globalWeRecommend %}
+        {% include "sections/_we-recommend" with {
+            recommendBlock: weRecommend.weRecommend.one
+        } %}
+    {% elseif entry.weRecommend is defined and entry.weRecommend|length %}
+        {% include "sections/_we-recommend" with {
+            recommendBlock: entry.weRecommend.one
+        } %}
+    {% endif %}
+
+    {% include "sections/_link-blocks" %}
+
+    {% if entry.featuredCaseStudy and entry.featuredCaseStudy|length %}
+        {% include "sections/_featured-case-study" with {
+            item: entry.featuredCaseStudy.one
+        } %}
+    {% endif %}
+
+    {% include 'sections/_find-showroom' %}
+{% endblock %}

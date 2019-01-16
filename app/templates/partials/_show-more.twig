@@ -1,0 +1,21 @@
+{%- if caseStudies is defined -%}
+    {% set cardLength = caseStudies|length %}
+{%- elseif products is defined -%}
+    {% set cardLength = products|length %}
+{%- endif -%}
+<div class="show-more"
+     data-show-number-items="{{ showItem }}">
+
+    {% if showMore and cardLength > showItem %}
+        <button>
+            <div class="show-more__text">
+                Show more
+                <span class="icm-arrow-down"></span>
+            </div>
+            <div class="show-more__text show-more__text--over">
+                Show more
+                <span class="icm-arrow-down"></span>
+            </div>
+        </button>
+    {% endif %}
+</div>

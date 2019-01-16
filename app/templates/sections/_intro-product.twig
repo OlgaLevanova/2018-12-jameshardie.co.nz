@@ -1,0 +1,23 @@
+{% if entry.introPage %}
+    {% set intro = entry.introPage.one %}
+
+    <section class="sib-intro-title product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    {%- if intro.greenText is defined and intro.greenText -%}
+                    <h3 class="product__green-text">{{ intro.greenText|striptags }}</h3>  
+                    {%- endif -%}
+                </div>
+                <div class="col-lg-8">
+                    {%- if intro.sibTitle is defined and intro.sibTitle -%}
+                    <h2 class="product__title">{{ intro.sibTitle }}<br></h2>
+                    {%- endif -%}
+                    {%- if intro.sibText is defined and intro.sibText -%}
+                    <p class="priduct__text">{{ intro.sibText }}</p>
+                    {%- endif -%}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

@@ -1,0 +1,53 @@
+{% extends "_layout" %}
+
+{% block content %}
+    {% include 'sections/_slider' with {
+        items:entry.slider.all()
+    } %}
+
+    {% include "sections/_intro-text-blocks" with {
+        title: false
+    } %}
+
+    <div class="container">
+        <div class="col-12">
+            <h2 class="page-title">Home Home page</h2>
+        </div>
+    </div>
+
+    {% if entry.similarProjects %}
+        {% include "sections/_case-study-listing" with {
+            caseStudies: entry.similarProjects.all,
+            title: 'Featured PROJECTS',
+            showItem:entry.similarProjects|length,
+            showMore: false,
+            breakpoint:-1,
+            mode:'slider'
+        } %}
+    {% endif %}
+
+    {% include "sections/_the-look-book" %}
+
+    {% set galleryPage = craft.entries.id(105).one %}
+    {% set items = galleryPage.children().level(3).all() %}
+    {% include "sections/_video-list" with {
+        items:items,
+        title:galleryPage.title,
+        greenText:galleryPage.introText.one.greenText,
+        text:galleryPage.introText.one.sibText
+    } %}
+
+    {% if entry.globalWeRecommend is defined and entry.globalWeRecommend %}
+        {% include "sections/_we-recommend" with {
+            recommendBlock: weRecommend.weRecommend.one
+        } %}
+    {% elseif entry.weRecommend is defined and entry.weRecommend|length %}
+        {% include "sections/_we-recommend" with {
+            recommendBlock: entry.weRecommend.one
+        } %}
+    {% endif %}
+
+    {% include "sections/_link-blocks" %}
+
+    {% include 'sections/_find-showroom' %}
+{% endblock %}

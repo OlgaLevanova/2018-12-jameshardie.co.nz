@@ -1,0 +1,72 @@
+.sib-card-square{
+    margin-bottom:rem(20);
+    background-color:$white;
+    box-shadow:1px 1px 3px 1px $jh-grey-light-2;
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        margin-bottom:rem(30);
+    }
+
+    .sib-card-square__image{
+        position:relative;
+        display:block;
+        height:rem(450);
+        background-position:center;
+        background-repeat:no-repeat;
+        background-size:cover;
+
+        button{
+            position:absolute;
+            top:50%;
+            left:50%;
+            display:block;
+            padding:0 !important;
+            margin:0 !important;
+            font-size:rem(20);
+            font-weight:bold;
+            line-height:1.2;
+            letter-spacing:0.5px;
+            text-align:center;
+            transform:translate(-50%, -50%);
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                font-size:rem(30);
+                line-height:1.07;
+                letter-spacing:3px;
+            }
+        }
+    }
+    .sib-card-square__title{
+        height:rem(105);
+        padding:rem(26) rem(15) rem(23);
+        color:$jh-grey-dark;
+        font-size:rem(20);
+        font-weight:bold;
+        line-height:1.1;
+        letter-spacing:0.5px;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            height:rem(125);
+            padding-right:rem(25);
+            padding-left:rem(25);
+            font-size:rem(30);
+            line-height:1.17;
+            letter-spacing:1px;
+        }
+
+        span{
+            display:block;
+            padding-top:rem(8);
+            font-size:rem(16);
+            font-weight:300;
+            line-height:1.5;
+            letter-spacing:normal;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                font-size:rem(22);
+                line-height:1.45;
+                letter-spacing:1px;
+            }
+        }
+    }
+}

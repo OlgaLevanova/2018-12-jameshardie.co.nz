@@ -1,0 +1,24 @@
+<section class="sib-the-look-book">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-3 sib-the-look-book__image">
+                <img src="{{ theLookBook.sibImage.one ? theLookBook.sibImage.one.url : '/images/old-book.png' }}" alt="">
+            </div>
+            <div class="col-12 col-lg-6">
+                <h3>{{ theLookBook.pageTitle }}</h3>
+                <h4>{{ theLookBook.subTitle }}</h4>
+                <div class="sib-the-look-book__text">{{ theLookBook.simpleText }}</div>
+            </div>
+            <div class="col-12 col-lg-3 sib-the-look-book__link">
+
+                {% include "/partials/_hover-element" with {
+                    element: "a",
+                    classes: "btn btn-square2 btn-grey btn-border-thin",
+                    text: theLookBook.sibLink.text,
+                    link: theLookBook.sibLink.url
+                } %}
+
+            </div>
+        </div>
+    </div>
+</section>

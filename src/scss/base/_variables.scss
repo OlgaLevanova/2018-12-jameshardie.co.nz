@@ -1,0 +1,52 @@
+/* Fonts */
+$font-default: Helvetica, Arial, sans-serif;
+
+// all variations of the fonts  -- font weight
+$font-primary: 'Montserrat', $font-default;
+$font-secondary: 'Spectrum', $font-default;
+
+$base-font-size: 22;
+$base-line-height: 1.45;
+$base-letter-spacing: 1px;
+
+/* Colors */
+$white: #FFFFFF;
+$black: #000000;
+$jh-green: #009A44;
+$jh-grey-light: #C3C4C6;
+$jh-grey-light-2: #EEEDED;
+$jh-grey-light-3: #F6F6F6;
+$jh-grey-dark: #4D4D4F;
+
+/* Breakpoints */
+$grid-gutter-width: 30px !default;
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px,
+    xxxl: 2500px
+) !default;
+/*$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1440px,
+    xxxl: 2200px
+) !default;*/
+$container-max-widths: (
+    lg: 1410px
+) !default;
+
+$fluid-container-breakpoint: 1440px; // max width
+$menu-breakpoint: 992px;
+$extra-gap: 10px;
+
+$we-recommend: (
+    sm: 300px,
+    md: 600px,
+    lg: 800px
+)

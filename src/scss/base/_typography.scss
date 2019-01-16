@@ -1,0 +1,76 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    overflow: hidden;
+    font-family: $font-primary;
+    font-weight: normal;
+    line-height: 1.33;
+}
+
+h1 {
+    font-size: rem(40);
+    line-height: 1.23;
+
+    @media all and (min-width: map-get($grid-breakpoints, md)) {
+        font-size: rem(62);
+    }
+}
+
+h2 {
+    font-size: rem(40);
+    line-height: 1.1;
+
+    @media all and (min-width: map-get($grid-breakpoints, md)) {
+        font-size: rem(50);
+    }
+}
+
+h3 {
+    font-size: rem(40);
+    line-height: 1.03;
+
+}
+
+h4 {
+    font-size: rem(24);
+    line-height: 1.33;
+}
+
+h5 {
+    font-size: rem(18);
+    font-style: normal;
+    line-height: 1.44;
+}
+
+h6 {
+    font-size: rem(12);
+    font-style: normal;
+    line-height: 0.83;
+}
+
+p {
+    padding:0;
+}
+
+blockquote {
+    color: $black;
+    font-family: $font-primary;
+    font-size: rem(32);
+    font-style: italic;
+    line-height: 1.25;
+}
+
+small {
+    font-family: $font-primary;
+    font-size: rem(12);
+}
+
+a {
+    color: $jh-green;
+    text-decoration: none;
+}
+
+ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+}

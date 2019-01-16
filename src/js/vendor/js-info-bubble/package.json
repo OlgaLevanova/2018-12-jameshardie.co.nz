@@ -1,0 +1,64 @@
+{
+  "_from": "js-info-bubble",
+  "_id": "js-info-bubble@0.8.0",
+  "_inBundle": false,
+  "_integrity": "sha1-diQz3r6QUkiXW4l8XR8+sQK5dN4=",
+  "_location": "/js-info-bubble",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "js-info-bubble",
+    "name": "js-info-bubble",
+    "escapedName": "js-info-bubble",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/js-info-bubble/-/js-info-bubble-0.8.0.tgz",
+  "_shasum": "762433debe905248975b897c5d1f3eb102b974de",
+  "_spec": "js-info-bubble",
+  "_where": "/home/olga/Projects/Docker/Sites/jameshardie.co.nz",
+  "author": {
+    "name": "Google Inc."
+  },
+  "bugs": {
+    "url": "https://github.com/googlemaps/js-info-bubble/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Google Inc."
+    }
+  ],
+  "deprecated": false,
+  "description": "A library to create customizable CSS3-based InfoWindows",
+  "directories": {
+    "example": "examples"
+  },
+  "homepage": "https://github.com/googlemaps/js-info-bubble#readme",
+  "keywords": [
+    "google",
+    "marker",
+    "infowindow",
+    "javascript",
+    "js",
+    "api",
+    "v3"
+  ],
+  "license": "Apache-2.0",
+  "main": "src/infobubble.js",
+  "name": "js-info-bubble",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/googlemaps/js-info-bubble.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.8.0"
+}

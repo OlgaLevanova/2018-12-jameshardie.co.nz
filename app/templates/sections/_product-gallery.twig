@@ -1,0 +1,35 @@
+<div class="sib-image-block product-gallery">
+    <div class="container">
+        <div
+                class="row mobile-slick-carousel"
+                data-slick-breakpoint="992"
+                data-list-mode="bothLeft"
+        >
+        {# {{dd(galleries)}} #}
+        {% for item in galleries %}
+            {% if item.type == 'galleries'%}    
+                {# {% for item in galleries %} #}
+                    <div class="col-12 col-lg-{{ 12/(galleries|length|number_format) }}">
+                        <a
+                                href="{{ item.image.one.url }}"
+                                class="sib-image-block__image button--image"
+                        >
+                            <img src="{{ item.image.one.url }}" alt="">
+                        </a>
+                        <div class="sib-image-block__text">
+                            {{ item.galleryTitle }}
+                        </div>
+                        <div class="popup-info">
+                            <div class="popup-title">{{ item.popupTitle }}</div>
+                            <div class="popup-subtitle">{{ item.popupSubtitle }}</div>
+                            <div class="popup-bottomTitle">{{ item.popupBottomTitle }}</div>
+                            <div class="popup-link">{{ item.popupLink }}</div>
+                        </div>
+                    </div>
+                {# {% endfor %} #}
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+</div>
+    

@@ -1,0 +1,135 @@
+.sib-featured-case-study{
+    position:relative;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    .sib-featured-case-study__svg{
+        position:absolute;
+        top:30%;
+        right:0;
+        bottom:0;
+        left:0;
+        z-index:1;
+        background:url('/images/rectangle-2.svg') left top no-repeat;
+        background-size:cover;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            top:0;
+            left:50%;
+            background:url('/images/rectangle-mirrow.svg') left top no-repeat;
+            background-size:cover;
+        }
+    }
+    .sib-featured-case-study__item{
+        position:relative;
+        z-index:2;
+        height:rem(600);
+    }
+    .sib-featured-case-study__more{
+        position:absolute;
+        top:50%;
+        left:rem(100);
+        display:none;
+        transform:translate(0, -50%);
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            display:block;
+        }
+        @media all and (min-width: 1440px) {
+            left:50%;
+            transform:translate(-50%, -50%);
+        }
+    }
+    .sib-featured-case-study__content{
+        width:100%;
+        color:$white;
+        font-size:rem(16);
+        font-weight:300;
+        line-height:1.5;
+        letter-spacing:0.6px;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            position:absolute;
+            top:50%;
+            right:rem(90);
+            width:rem(380);
+            transform:translateY(-50%);
+        }
+
+        h3{
+            position:absolute;
+            top:rem(30);
+            left:rem(25);
+            width:rem(95);
+            font-size:rem(12);
+            font-weight:bold;
+            line-height:1.17;
+            letter-spacing:1px;
+            text-transform:uppercase;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                position:static;
+                width:auto;
+                padding-bottom:rem(50);
+                font-size:rem(20);
+                line-height:1.1;
+                letter-spacing:0.5px;
+                text-transform:none;
+            }
+        }
+        h4{
+            padding-bottom:rem(5);
+            font-size:rem(30);
+            font-weight:bold;
+            line-height:1.07;
+            letter-spacing:1px;
+        }
+        .sib-featured-case-study__all{
+            display:none;
+            margin-top:rem(15);
+            font-size:rem(15);
+            font-weight:bold;
+            line-height:1.13;
+            letter-spacing:1px;
+            text-align:center;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:block;
+            }
+        }
+        .sib-featured-case-study__more-mobile{
+            display:block;
+            text-align:center;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:none;
+            }
+        }
+    }
+    .sib-featured-case-study__content__inner{
+        position:absolute;
+        bottom:rem(40);
+        left:0;
+        width:100%;
+        padding-right:rem(25);
+        padding-left:rem(25);
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            position:relative;
+            padding-right:0;
+            padding-left:0;
+        }
+
+        div{
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                padding-bottom:rem(1);
+            }
+        }
+    }
+    .sib-hover-element{
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            margin-left:0;
+        }
+    }
+}

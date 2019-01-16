@@ -1,0 +1,27 @@
+{% block content %}
+    {%- if entry.hero|length -%}
+        {% include 'sections/_slider' with {
+            items:entry.hero.all()
+        } %}
+    {%- endif -%}
+
+    {% include "sections/_list-tab" %}
+
+    {% include "sections/_intro-text-blocks" with {
+        title: true
+    } %}
+
+    {% include "sections/_filter" %}
+
+    {% include "sections/_product-listing" with {
+        products: entry.children().level(3).all(),
+        title: entry.title ~ ' Products',
+        showItem:entry.children().level(3)|length < 2 ? entry.children().level(3)|length : 2,
+        showMore: true,
+        breakpoint: -1,
+        mode:'tiles'
+    } %}
+
+    {% include "sections/_need-support" %}
+
+{% endblock %}

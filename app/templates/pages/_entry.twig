@@ -1,0 +1,57 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+    {% switch entry.type %}
+
+        {% case "productDetail" %}
+            {% include "/pages/product-details" %}
+
+        {% case "productListing" %}
+            {% include "/pages/product-listing" %}
+
+        {% case "productComparison" %}
+            {% include "/pages/products" %}
+
+        {% case "genericPage" %}
+            {% include "/pages/generic" %}
+
+        {% case "genericListing" %}
+            {% include "/pages/generic-listing" %}
+
+        {% case "mediaGallery" %}
+            {% include "/pages/media-gallery" %}
+
+        {% case "videoGallery" %}
+            {% include "/pages/video-gallery" %}
+
+        {% case "caseStudyListing" %}
+            {% include "/pages/case-study" %}
+
+        {% case "caseStudyDetail" %}
+            {% include "/pages/generic" %}
+
+        {% case "peopleListing" %}
+            {% include "/pages/people-listing" %}
+
+        {% case "contactUs" %}
+            {% include "/pages/contact" %}
+
+        {% case "showhomes" %}
+            {% include "/pages/show-homes" %}
+
+        {% case "cadLibraryListing" %}
+            {% include "/pages/cad-library-listing" %}
+
+        {% case "cadLibraryDetails" %}
+            {% include "/pages/cad-library-details" %}
+
+        {% case "technicalLiterature" %}
+            {% include "/pages/technical-literature" %}
+
+        {% default %}
+            {% include "/pages/generic" %}
+
+    {% endswitch %}
+
+{% endblock %}

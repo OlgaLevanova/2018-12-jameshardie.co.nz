@@ -1,0 +1,30 @@
+.sib-generic-listing{
+    position:relative;
+
+    &:before{
+        position:absolute;
+        top:0;
+        right:0;
+        left:0;
+        height:rem(500);
+        background:$jh-grey-light-2;
+        content:'';
+    }
+    .sib-generic-listing__title{
+        position:relative;
+        padding:rem(50) 0 rem(56);
+        color:$jh-grey-dark;
+        font-size:rem(20);
+        font-weight:bold;
+        line-height:1.1;
+        letter-spacing:0.5px;
+        text-align: center;
+        text-transform:uppercase;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(40);
+            line-height:1;
+            letter-spacing:4px;
+        }
+    }
+}

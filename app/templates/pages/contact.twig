@@ -1,0 +1,20 @@
+{% block content %}
+    {% if entry.hero|length %}
+        {% include 'sections/_slider' with {
+            items:entry.hero.all(),
+            resistants: null
+        } %}
+    {% endif %}
+
+    {% include "sections/_intro-title" with {
+        intro: entry.introPageTitles.one
+    } %}
+
+    {% include "sections/_intro-text" with {
+        testimonial:false,
+        contact:true,
+        intro: entry.introContact.one
+    } %}
+
+    {% include "sections/_contact-form" %}
+{% endblock %}

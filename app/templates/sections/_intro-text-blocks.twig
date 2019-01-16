@@ -1,0 +1,15 @@
+{% if entry.introText %}
+    <section class="sib-intro-text-blocks">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 sib-intro-text-blocks__green">
+                    {{ entry.introText.one.greenText }}
+                </div>
+                <div class="col-lg-8 sib-intro-text-blocks__black">
+                    {% if title %}<h3>{{ entry.title }}</h3>{% endif %}
+                    {{ entry.introText.one.sibText }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

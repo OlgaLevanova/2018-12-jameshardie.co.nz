@@ -1,0 +1,32 @@
+.page-cms-landingpage{
+    .sib-header__row-1,
+    .sib-nav__container{
+        border:none;
+        transform:scale(0);
+    }
+    .sib-header__row-2{
+        background:none;
+        border:none;
+    }
+    .sib-half-link{
+        .container-fluid,
+        .row{
+            padding:0;
+            margin:0;
+        }
+    }
+    .sib-half-link__content{
+        width:100%;
+        max-width:rem(510);
+        margin:0 auto;
+    }
+    .sib-footer__copyright{
+        >div:first-child{
+            display:none;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:block;
+            }
+        }
+    }
+}

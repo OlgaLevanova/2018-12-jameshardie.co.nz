@@ -1,0 +1,34 @@
+{% if image is null %}
+    {% set image = '/images/avatar_placefiller.jpg'  %}
+{% endif %}
+{% if buttonText is null %}
+    {% set buttonText = 'Visit' %}
+{% endif %}
+
+<div class="sib-card-square">
+    <a class="sib-card-square__image button--video"
+       style="background-image:url('{{ image }}')"
+       {% if videoId is defined %}data-video-id="{{ videoId }}"{% endif %}
+    >
+
+        {% include "/partials/_hover-element" with {
+            element: "button",
+            classes: "btn btn-square1 btn-white btn-border-thick",
+            text: buttonText,
+            link: ""
+        } %}
+
+    </a>
+    <div class="sib-card-square__title">
+        {{ title }}
+        {% if subTitle != '' %}<span>{{ subTitle }}</span>{% endif %}
+    </div>
+    {% if videoId is defined %}
+        <div class="popup-info">
+            <div class="popup-title">{{ block.popupInfo.one.sibTitle }}</div>
+            <div class="popup-subtitle">{{ block.popupInfo.one.subtitle }}</div>
+            <div class="popup-bottomTitle">{{ block.popupInfo.one.bottomTitle }}</div>
+            <div class="popup-link">{{ block.popupInfo.one.sibLink }}</div>
+        </div>
+    {% endif %}
+</div>

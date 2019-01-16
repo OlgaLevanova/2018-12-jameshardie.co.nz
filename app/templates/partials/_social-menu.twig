@@ -1,0 +1,11 @@
+<div class="sib-social-menu">
+    <ul>
+        {% for social in socialMenu %}
+            <li>
+                <a href="{{ social.sibLink }}" class="icm-{{ social.sibTitle|lower }}">
+                    <span>{{ social.sibTitle }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

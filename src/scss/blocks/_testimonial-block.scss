@@ -1,0 +1,37 @@
+.sib-testimonial-block{
+    padding:rem(17) rem(15) rem(5);
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        padding-top:rem(5);
+    }
+
+    .sib-testimonial-block__text{
+        padding-top: rem(20);
+        color:$jh-grey-dark;
+        font-size:rem(20);
+        font-weight:bold;
+        line-height:1.5;
+        letter-spacing:0.5px;
+        border-top:2px solid $jh-green;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(30);
+            line-height:1.17;
+            letter-spacing:1px;
+        }
+    }
+    .sib-testimonial-block__client{
+        padding-top:rem(10);
+        color:$jh-green;
+        font-size:rem(12);
+        font-weight:300;
+        line-height:1.5;
+        letter-spacing:0.5px;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-top:0;
+            font-size:rem(16);
+            letter-spacing:normal;
+        }
+    }
+}

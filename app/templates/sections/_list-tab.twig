@@ -1,0 +1,36 @@
+{% if list is not defined %}
+    {% set list = entry.parent().children().level(2).all() %}
+{% endif %}
+{% if craft.request.segments[1] is defined %}
+    {% set slugs = craft.request.segments[1] %}
+{% endif %}
+<section class="sib-list-tab {% if title is defined and title|length %}home-tab{% endif %}">
+    <div class="container">
+        {% if title is defined and title|length %}
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h3 class="tab__title">DISCOVER OUR RANGE</h3>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col">
+                {% if slugs is defined and slugs|length %}
+                <div class="dropdown__label d-flex d-md-none">
+                    <span>{{- slugs -}}</span>
+                    <span class="icm-arrow-down"></span>
+                </div>
+                {% endif %}
+                <ul class="dropdown">
+                    {%- for item in list -%}
+                        {% if slugs is defined and slugs|length %}
+                            <li class="{{ slugs == item.slug ? 'active' }}"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        {% else %}
+                            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        {% endif %}
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

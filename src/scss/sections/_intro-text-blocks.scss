@@ -1,0 +1,50 @@
+.sib-intro-text-blocks{
+    padding:rem(20) 0 rem(20);
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        padding:rem(60) 0 rem(40);
+    }
+    .sib-intro-text-blocks__green{
+        padding-top:rem(15);
+        color:$jh-green;
+        font-size:30px;
+        font-weight:200;
+        line-height:1.33;
+        letter-spacing:normal;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(40);
+            font-weight:200;
+            line-height:1.25;
+            letter-spacing:1px;
+        }
+
+    }
+    .sib-intro-text-blocks__black{
+        font-size:rem(16);
+        font-weight:300;
+        line-height:1.5;
+        letter-spacing:normal;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(22);
+            font-weight:300;
+            line-height:1.45;
+            letter-spacing:1px;
+        }
+    }
+    h3{
+        padding-top:rem(28);
+        color:$jh-green;
+        font-size:rem(22);
+        font-weight: bold;
+        line-height:1.09;
+        letter-spacing:1.5px;
+        text-transform:uppercase;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(30);
+            letter-spacing:3px;
+        }
+    }
+}

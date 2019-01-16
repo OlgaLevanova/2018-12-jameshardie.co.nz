@@ -1,0 +1,38 @@
+{% set allItems = findShowroom.findShowroom.all() %}
+
+<section class="sib-find-showroom">
+    <div class="sib-find-showroom__map"></div>
+
+    {% for address in allItems %}
+        <div class="map-data"
+             data-lat="{{ address.address.lat }}"
+             data-lng="{{ address.address.lng }}"
+             data-info="{{ address.address }}"
+             data-main="{% if address.mainAddress %}{{ 1 }}{% else %}{{ 0 }}{% endif %}">
+        </div>
+    {% endfor %}
+
+    <div class="sib-find-showroom__wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 sib-find-showroom__inner">
+                    <div class="sib-find-showroom__options">
+                        <h2>Find your nearest Showroom</h2>
+                        <select id="sib-find-showroom__select">
+                            <option value="0">select option</option>
+                            {% for address in allItems %}
+                                <option value="{{ loop.index }}"
+                                        data-lat="{{ address.address.lat }}"
+                                        data-lng="{{ address.address.lng }}"
+                                        {% if address.mainAddress %}selected{% endif %}
+                                >
+                                    {{ address.address }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

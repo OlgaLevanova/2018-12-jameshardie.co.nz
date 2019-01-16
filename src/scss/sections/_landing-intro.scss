@@ -1,0 +1,37 @@
+.sib-landing-intro{
+    margin-top:rem(60);
+    margin-bottom:rem(38);
+    font-size:rem(12);
+    line-height:1.5;
+    letter-spacing: 0.5px;
+    text-align:center;
+
+    @media all and (min-width: map-get($grid-breakpoints, md)) {
+        margin-top:rem(38);
+        font-size:rem(16);
+        line-height:1.25;
+        letter-spacing:1px;
+    }
+
+    h1{
+        position:relative;
+        padding-bottom:rem(28);
+        margin-bottom:rem(20);
+        color:$jh-green;
+        font-size:rem(40);
+        font-weight:200;
+        line-height:1;
+        letter-spacing:1px;
+
+        &:after{
+            position:absolute;
+            bottom:0;
+            left:50%;
+            width:150px;
+            height:2px;
+            background:$jh-green;
+            content:'';
+            transform:translateX(-50%);
+        }
+    }
+}

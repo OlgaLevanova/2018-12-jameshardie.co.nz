@@ -1,0 +1,46 @@
+@font-face {
+    font-family: icomoon;
+    font-style: normal;
+    font-weight: normal;
+    src: url('/web/fonts/icomoon/icomoon.eot?mxyizw');
+    src: url('/web/fonts/icomoon/icomoon.eot?mxyizw#iefix') format('embedded-opentype'),
+        url('/web/fonts/icomoon/icomoon.ttf?mxyizw') format('truetype'),
+        url('/web/fonts/icomoon/icomoon.woff?mxyizw') format('woff'),
+        url('/web/fonts/icomoon/icomoon.svg?mxyizw#icomoon') format('svg');
+}
+
+@mixin icomoon() {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: icomoon !important;
+    font-variant: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-transform: none;
+    speak: none;
+}
+
+[class^="icm-"], [class*=" icm-"] {
+    @include icomoon();
+}
+
+.icm-facebook:before {
+    content: "\e900";
+}
+.icm-instagram:before {
+    content: "\e901";
+}
+.icm-linkedin:before {
+    content: "\e902";
+}
+.icm-pinterest:before {
+    content: "\e903";
+}
+.icm-twitter:before {
+    content: "\e904";
+}
+.icm-arrow-down:before {
+    content: "\e906";
+}

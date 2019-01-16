@@ -1,0 +1,38 @@
+{% set homeProf = craft.entries().section('homeIndustryProfessionals').one() %}
+{% set homeOwners = craft.entries().section('homeHomeOwners').one() %}
+{% set logo %}
+    {% include "partials/_logo.twig" with {
+        color1: '#FFF',
+        color2: '#FFF',
+        color3: '#FFF'
+    } %}
+{% endset %}
+
+<section class="sib-header">
+    <div class="container-fluid">
+
+        <div class="row sib-header__row-1">
+            <div class="col-12">
+                <ul>
+                    <li><a href="{{ homeOwners.url }}">{{ homeOwners.pageTitle }}</a></li>
+                    <li><a href="{{ homeProf.url }}">{{ homeProf.pageTitle }}</a></li>
+                    <li><a href="#">CN</a></li>
+                    <li><span>Search</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row sib-header__row-2">
+            <div class="col-4 col-md-2 col-lg-3 sib-header__logo">
+                {% if entry.type == 'landingPage' %}
+                    <span>{{ logo }}</span>
+                {% else %}
+                    <a href="/">{{ logo }}</a>
+                {% endif %}
+            </div>
+            <div class="col-8 col-md-10 col-lg-9 sib-nav__container">
+                {% include './sections/_nav' %}
+            </div>
+        </div>
+    </div>
+</section>

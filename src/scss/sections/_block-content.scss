@@ -1,0 +1,13 @@
+.sib-block-content{
+    >div{
+        margin:rem(20) 0;
+
+        &:first-child{
+            margin-top:0;
+        }
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            margin:rem(45) 0;
+        }
+    }
+}

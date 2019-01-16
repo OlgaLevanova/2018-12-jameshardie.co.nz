@@ -1,0 +1,40 @@
+{% set image = item.caseStydeExcerpt.one.sibImage ? item.caseStydeExcerpt.one.sibImage.one.url : '/images/haus_kieffer_01.jpg' %}
+
+<section class="sib-featured-case-study" style="background-image:url('{{ image }}');">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sib-featured-case-study__svg"></div>
+            <div class="col sib-featured-case-study__item">
+
+                {% include "/partials/_hover-element" with {
+                    element: "a",
+                    classes: "btn btn-square1 byn-white btn-border-thin sib-featured-case-study__more",
+                    text: "READ MORE",
+                    link: item.url
+                } %}
+
+                <div class="sib-featured-case-study__content">
+                    <h3>Feature case study</h3>
+                    <div class="sib-featured-case-study__content__inner">
+                        <h4>{{ item.title }}</h4>
+                        <div>{{ item.caseStydeExcerpt.one.description }}</div>
+
+                        {% include "/partials/_hover-element" with {
+                            element: "a",
+                            classes: "btn btn-v2 btn-white btn-border-thin sib-featured-case-study__all",
+                            text: "VIEW ALL CASE STUDIES",
+                            link: craft.entries.id(106).one.url
+                        } %}
+
+                        {% include "/partials/_hover-element" with {
+                            element: "a",
+                            classes: "btn btn-v2 btn-white btn-border-thin sib-featured-case-study__more-mobile",
+                            text: "READ MORE",
+                            link: item.url
+                        } %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

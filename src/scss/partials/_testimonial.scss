@@ -1,0 +1,16 @@
+.sib-testimonial{
+    padding-top:rem(34);
+    color:$jh-grey-dark;
+    font-size:rem(30);
+    font-weight:bold;
+    line-height:1.17;
+    letter-spacing:1px;
+
+    .sib-testimonial__client{
+        color:$jh-green;
+        font-size:rem(16);
+        font-weight:300;
+        line-height:1.5;
+        letter-spacing:0;
+    }
+}

@@ -1,0 +1,94 @@
+.btn {
+    display:inline-block;
+    width:100%;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+    color: $white;
+    font-family: $font-primary;
+    font-size: rem(15);
+    font-weight:bold;
+    text-transform:uppercase;
+    cursor: pointer;
+    background-color:transparent;
+    border:3px solid $white;
+    transition: all 0.2s 0.05s ease;
+
+    @media all and (min-width: map-get($grid-breakpoints, md)) {
+        width: rem(280);
+    }
+
+    &.btn-white{
+        &,
+        input{
+            color:$white;
+            border-color:$white;
+        }
+    }
+    &.btn-grey{
+        &,
+        input{
+            color:$jh-grey-dark;
+            border-color:$jh-grey-dark;
+
+            &:hover{
+                color:$white;
+            }
+        }
+    }
+    &.btn-border-thin{
+        border-width:3px;
+    }
+    &.btn-border-thick{
+        border-width:5px;
+    }
+    &.btn-v1{
+        height:rem(60);
+    }
+    &.btn-v2{
+        height:rem(45);
+    }
+    &.btn-square1{
+        width:rem(240);
+        height:rem(240);
+        font-size:rem(30);
+        font-weight:bold;
+        line-height:1.07;
+        letter-spacing:3px;
+    }
+
+    // Variation 1
+    &-primary {
+        &:hover {
+            background-color:rgba($jh-green, 0.35);
+            border:3px solid $jh-green;
+        }
+    }
+
+    // Variation 2
+    &-secondary {
+        height: rem(60);
+        min-width: 0;
+        padding: 0 rem(5) 0 0;
+        color: $jh-grey-dark;
+        background-color: transparent;
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            margin-right: rem(15);
+        }
+
+        &:hover {
+            [class^='icm-'] {
+                left: rem(5);
+            }
+        }
+    }
+}
+
+// button bounce effect
+@keyframes bounceButtonIcon {
+    0% { margin-bottom: 0; }
+    25% { margin-bottom: rem(2) }
+    50% { margin-bottom: rem(5) }
+    75% { margin-bottom: rem(2) }
+    100% { margin-bottom: 0; }
+}

@@ -1,0 +1,79 @@
+{%- if entry.productResistant -%}
+    {% set resistants = entry.productResistant.all() %}
+{%- endif -%}
+
+{% block content %}
+    {%- if entry.productResistant -%}
+        {% set resistants = entry.productResistant.all() %}
+    {%- endif -%}
+    {%- if entry.hero|length -%}
+        {% include 'sections/_slider' with {
+            items:entry.hero.all(),
+            resistants: resistants
+        } %}
+    {%- endif -%}
+
+    {#{% include "sections/_resistants" with {
+        resistants: resistants,
+    } %}#}
+
+    {% include "sections/_intro-title" with {
+        intro: entry.introPageTitles.one
+    } %}
+
+    {% set testimonial = null %}
+    {% if entry.testimonialEntry.one is not null %}
+        {% set testimonial = entry.testimonialEntry.one %}
+    {% endif %}
+
+    {% include "sections/_generic-text" with {
+        testimonial: testimonial
+    } %}
+
+    {% if entry.productImageGallery and entry.productImageGallery|length %}
+        {% for imageGallery in entry.productImageGallery %}
+            {% include "sections/_product-gallery" with {
+                galleries: imageGallery.imageGallery
+            } %}
+        {% endfor %}
+    {% endif %}
+
+    {% include "sections/_media-list" with {
+        media: entry.productInspirationGallery.all(),
+        title: "Product inspiration gallery",
+        cardLength: entry.productInspirationGallery.all()|length,
+        showMore: true,
+        showItem: 4
+    } %}
+
+    {% if entry.featuredCaseStudy and entry.featuredCaseStudy|length %}
+        {% include "sections/_featured-case-study" with {
+            item: entry.featuredCaseStudy.one
+        } %}
+    {% endif %}
+
+    {% if entry.similarProjects and entry.similarProjects|length > 0 %}
+        {% include "sections/_case-study-listing" with {
+            caseStudies: entry.similarProjects.all,
+            title: 'SIMILAR PROJECTS',
+            showItem:2,
+            showMore: true,
+            breakpoint: 992,
+            mode:'both'
+        } %}
+    {% elseif entry.similarProducts and entry.similarProducts|length > 0%}
+        {# {{dd(entry.similarProducts.level(3).all())}} #}
+        {% include "sections/_product-listing" with {
+            products: entry.similarProducts.level(3).all(),
+            title: 'Similar Products',
+            showItem:entry.similarProducts.level(3)|length < 2 ? entry.similarProducts.level(3)|length : 2,
+            showMore: true,
+            breakpoint: -1,
+            mode:'tiles'
+        } %}
+    {% endif %}
+
+    {% include "sections/_link-blocks" %}
+
+    {% include 'sections/_find-showroom' %}
+{% endblock %}

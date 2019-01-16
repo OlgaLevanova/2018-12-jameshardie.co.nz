@@ -1,0 +1,36 @@
+.sib-product-details {
+    &__links {
+        li {
+            border-bottom: 1px solid $jh-grey-light;
+            a {
+                display: flex;
+                justify-content: space-between;
+                padding:15px 0;
+                color: $jh-grey-dark;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 1.2;
+                letter-spacing: 1.4px;
+                text-transform: uppercase;
+                cursor: pointer;
+                // span {
+                //     transform-origin: center;
+                //     transform: rotate(0);
+                //     transition: transform 0.25s ease-in-out;
+                // }
+
+                &:hover {
+                    color: $jh-green;
+
+                    // span {
+                    //     transform: rotate(180deg);
+                    // }
+                }
+
+                &.button--acce {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

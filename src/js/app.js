@@ -1,0 +1,30 @@
+// import AlgoliaSearch from './partials/search';
+import Dropdown from './partials/dropdown';
+import FindShowroom from './partials/find-showroom';
+import FlippingCard from './partials/flipping-card';
+import Footer from './partials/footer';
+import HomeSlider from './partials/home-slider';
+import MainMenu from './partials/main-menu';
+import Modal from './partials/modal';
+import ResistantSlider from './partials/resistant-slider';
+import ShowMore from './partials/show-more';
+import SlickSlider from './partials/slick-slider';
+import style from '../scss/app.scss';
+import WeRecommend from './partials/we-recommend';
+// import SibOverlay from './partials/overlay';
+
+document.addEventListener('DOMContentLoaded', function init() {
+    // AlgoliaSearch.bindEvents();
+    Dropdown.init();
+    FindShowroom.init();
+    FlippingCard.init();
+    Footer.init();
+    HomeSlider.init();
+    MainMenu.bindEvents();
+    Modal.init();
+    ResistantSlider.bindEvents();
+    ShowMore.init();
+    SlickSlider.init();
+    WeRecommend.init();
+    // SibOverlay.bindEvents();
+});

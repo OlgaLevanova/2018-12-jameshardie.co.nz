@@ -1,0 +1,23 @@
+{% if intro is not null %}
+
+    <section class="sib-intro-title">
+        <div class="container">
+            <div class="row">
+                <div class="{{ social is not defined ? "col-lg-8" : "col-12" }}">
+                    <h2>
+                        {{ intro.sibTitle == '' ? entry.title : intro.sibTitle }}<br>
+                        <span>{{ intro.subTitle }}</span>
+                    </h2>
+                </div>
+                {% if social is not defined %}
+                    <div class="col-lg-4">
+                        {% set footerInfo = footer.footerInfo.one %}
+                        {% include "partials/_social-menu" with {
+                            socialMenu: footerInfo.socialMenu.all
+                        } %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endif %}

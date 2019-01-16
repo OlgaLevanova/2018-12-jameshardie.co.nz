@@ -1,0 +1,53 @@
+<div class="sib-overlay" id="acce-modal">
+    <div class="sib-overlay__content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content-wrap">
+                        <div class="content__body image">
+                            {% set acces = entry.productAccessories %}
+                            {% if acces is defined and acces|length %}
+                                <div class="content__header">
+                                    <h3>Accessories</h3><a href="#" class="sib-overlay__close sib-overlay__toggle"><span>x</span></a>
+                                </div>
+                                <div class="content__details content__acce">
+                                    <div class="acce__items">
+                                        {% for item in acces %}
+                                        <div class="item">
+                                            {% set acce = item.accessories %}
+                                            <div class="item__image" style="background-image:url('{{ acce.acceImage.one.url }}')">
+                                                {% include "/partials/_hover-element" with {
+                                                    element: "a",
+                                                    classes: "btn btn-v2",
+                                                    text: "Button",
+                                                    link: craft.entries.id(item.id).one.url
+                                                } %}
+                                            </div>
+                                            <div class="item__content">
+                                                <div class="item__description">
+                                                    <div class="item__title">{{ acce.acceTitle }}</div>
+                                                    <div class="item__subtitle">{{ acce.acceCategory }}</div>
+                                                </div>
+                                                <div class="item__details">
+                                                    <p>sheet size: {{ acce.acceSize }}</p>
+                                                    <p>units per pack: {{ acce.accePack }}</p>
+                                                    <p>code: {{ acce.acceCode }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {# content details #}
+                            {% else %}
+                                <div class="content__detail">
+                                    <h3>There are no Accessories for this Product.</h3>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

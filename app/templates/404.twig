@@ -1,0 +1,27 @@
+{% set entry = craft.entries.id('653').one() %}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+    {%- if entry.hero|length -%}
+        {% include 'sections/_slider' with {
+            items:entry.hero.all(),
+            resistants: null
+        } %}
+    {%- endif -%}
+
+    {% include "sections/_intro-title" with {
+        intro: entry.introPageTitles.one,
+        social:false
+    } %}
+
+    {% include "sections/_intro-text" with {
+        testimonial:false,
+        intro: entry.introText.one
+    } %}
+
+    {% set blocks = craft.entries.id(40).one.landingBlock.all() %}
+    {% include 'sections/_landing-block' with { blocks: blocks } %}
+
+{% endblock %}

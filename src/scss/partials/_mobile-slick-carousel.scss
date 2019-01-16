@@ -1,0 +1,23 @@
+.mobile-slick-carousel{
+    .show-more__item{
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding:0 rem(10);
+        }
+    }
+    @media all and (max-width: map-get($grid-breakpoints, lg)) {
+        display: block !important;
+
+        > div {
+            display: block !important;
+            width: 100% !important;
+        }
+        .slick-slide{
+            transform:scale(0.95);
+            transition:all 0.2s;
+
+            &.slick-current{
+                transform:scale(1);
+            }
+        }
+    }
+}

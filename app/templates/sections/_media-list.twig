@@ -1,0 +1,114 @@
+<section class="sib-media-list">
+
+    <h3>{{ title }}</h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+
+                {% set mediaLength = media|length %}
+                {% set mediaWhole = (mediaLength / 8)|round(0, 'floor') * 8 %}
+
+                <div class="sib-media-list__wrapper mobile-slick-carousel"
+                     data-slick-breakpoint="768"
+                     data-list-mode="both"
+                >
+                    {% for item in media %}
+
+                        {% set coverImage = null %}
+                        {% set itemLink = item.galleryItem %}
+                        {% if item.coverImage.one is not null %}
+                            {% set coverImage = item.coverImage.one.url %}
+                        {% endif %}
+                        {% set itemText = 'Read more' %}
+                        {% set asset = '' %}
+                        {% set video = '' %}
+                        {% set element = "a" %}
+
+                        {% switch item.galleryItem.type %}
+
+                        {% case "entry" %}
+                            {% set itemEntry = itemLink.getElement() %}
+
+                            {% switch itemEntry.type %}
+
+                            {% case "productDetail" %}
+                                {% set itemText = 'VIEW PRODUCT LIVE' %}
+
+                            {% case "video" %}
+                                {% set itemText = 'Watch video' %}
+                                {% set video = ' button--video' %}
+                                {% set element = "button" %}
+
+                            {% case "caseStudyDetail" %}
+                                {% set itemText = 'READ CASE STUDY' %}
+
+                            {% endswitch %}
+
+                        {% case "asset" %}
+                            {% set coverImage = item.galleryItem.url %}
+                            {% set itemText = 'View' %}
+                            {% set asset = ' button--image' %}
+
+                        {% case "url" %}
+                            {% set itemText = 'Read more' %}
+
+                        {% endswitch %}
+
+                        {% if coverImage is null %}
+                            {% set coverImage = '/images/DH.jpg' %}
+                        {% endif %}
+
+                        <div
+                                class="sib-media-list__item{% if loop.index > mediaWhole %}
+                                sib-media-list__item--last--{{ mediaLength - mediaWhole }}{% endif %}
+                                show-more__item show-more__item--hidden"
+                                data-show-more-item="item"
+                        >
+                            <div class="sib-media-list__inner{{ video }}"
+                                 style="background-image:url({{ coverImage }});"
+                                 {% if video != '' %}data-video-id="{{ itemEntry.videoAsset.one.videoId }}"{% endif %}
+                            >
+                                {% include "/partials/_hover-element" with {
+                                    element: element,
+                                    classes: "btn btn-square1 btn-white btn-border-thick"~asset,
+                                    text: itemText,
+                                    link: item.galleryItem.url
+                                } %}
+
+                                {% if asset != '' %}
+                                    <div class="popup-info">
+                                        <div class="popup-title"></div>
+                                        <div class="popup-subtitle"></div>
+                                        <div class="popup-bottomTitle"></div>
+                                        <div class="popup-link"></div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            {% if video != '' %}
+                                <div class="popup-info">
+                                    <div class="popup-title"></div>
+                                    <div class="popup-subtitle"></div>
+                                    <div class="popup-bottomTitle"></div>
+                                    <div class="popup-link"></div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% include "partials/_show-more" with {
+                    showItem: showItem
+                } %}
+            </div>
+        </div>
+
+    </div>
+</section>

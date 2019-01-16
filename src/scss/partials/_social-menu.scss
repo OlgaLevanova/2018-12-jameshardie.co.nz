@@ -1,0 +1,25 @@
+.sib-social-menu{
+    ul{
+        margin:0;
+        font-size:rem(30);
+        text-align:center;
+    }
+    li{
+        display:inline-block;
+
+        span{
+            display:none;
+        }
+    }
+    a{
+        position:relative;
+        padding:0 rem(10);
+        color:$jh-grey-dark;
+
+        @include hoverIcon($jh-green, 50px);
+
+        &:hover{
+            color:$jh-green;
+        }
+    }
+}

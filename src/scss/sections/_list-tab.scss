@@ -1,0 +1,290 @@
+.sib-list-tab {
+    margin-bottom: rem(37);
+
+    .row {
+        padding: 0;
+    }
+
+    .dropdown__label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: rem(74);
+        color: $jh-grey-dark;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.1;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        
+        span:first-child {
+            flex: 100%;
+        }
+        span:last-child {
+            transition: all 0.2s ease-in-out;
+        }
+
+        &:after {
+            position: absolute;
+            z-index: -1;
+            width: 100vw;
+            height: 100%;
+            background-color: $jh-grey-light-2;
+            border-bottom: rem(2) $jh-grey-light solid;
+            content: '';
+            transform: translateX(-15px);
+
+        }
+
+        &.open {
+            span:last-child {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    ul.dropdown {
+        position: absolute;
+        top: rem(74);
+        right: 0;
+        left: 0;
+        z-index: 98;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        width: 100%;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: all 0.2s ease;
+
+        &.open {
+            background-color: $white;
+            box-shadow: 0 10px 15px rgba($jh-grey-dark, 0.5);
+            transform: scaleY(1);
+        }
+
+        li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            a {
+                position: relative;
+                display: flex;
+                align-items: center;
+                height: rem(60);
+                color: $jh-grey-dark;
+                font-size: rem(15);
+                font-weight: bold;
+                font-stretch: normal;
+                line-height: 1.13;
+                letter-spacing: 1px;
+                text-indent: rem(30);
+                text-transform: uppercase;
+
+                &:after {
+                    position: absolute;
+                    width: 100vw;
+                    height: 100%;
+                    background-color: transparent;
+                    border-bottom: rem(2) $jh-grey-light solid;
+                    content: '';
+                }
+            }
+
+            // &:after {
+            //     position: absolute;
+            //     bottom: 0;
+            //     left: 0;
+            //     width: 0;
+            //     height: rem(2);
+            //     background-color: $jh-green;
+            //     content:'';
+            //     transition: all 0.3s 0.1s ease;
+            // }
+
+            &.active, &:hover {
+                
+                &:after {
+                    width: 100%;
+                }
+
+                a {
+                    color: $jh-green;
+
+                    &:after {
+                        background-color: rgba($jh-green, 0.15);
+                        border-bottom: 2px $jh-green solid;
+                        content: '';
+                    }
+                }
+            }
+        }
+
+
+        @media all and (min-width: map-get($grid-breakpoints, md )) {
+            position: relative;
+            top: 0;
+            flex-flow: wrap;
+            padding-top: rem(10);
+            transform: none;
+
+            li {
+                width: 50%;
+
+                &:nth-child(1), &:nth-child(2) {
+                    a {
+                        border-top: rem(2) solid $jh-grey-light;
+                    }
+                }
+                a {
+                    flex: 100%;
+                    height: rem(45);
+                    padding: rem(6) rem(15);
+                    margin: 0 rem(3);
+                    font-size: 12px;
+                    line-height: 1.17;
+                    letter-spacing: 1px;
+                    text-align: left;
+                    text-indent: 0;
+                    border-bottom: rem(2) solid $jh-grey-light;
+
+                    &:after {
+                        width: 100%;
+                        background-color: transparent;
+                        border-bottom: none;
+                        transform: translateX(-15px);
+                    }
+                }
+                &:after {
+                    margin-left: rem(3);
+                    border: 0;
+                }
+                &.active, &:hover {
+                    &:after {
+                        width: calc(100% - 6px);
+                    }
+
+                    a {
+                        color: $jh-green;
+    
+                        &:after {
+                            background-color: rgba($jh-green, 0.15);
+                            border-bottom: 2px $jh-green solid;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media all and (min-width: map-get($grid-breakpoints, lg )) {
+            border-bottom: rem(1) solid $jh-green;
+            
+            li {
+                width: auto;
+                
+                a {
+                    width: rem(170);
+                    height: rem(95);
+                    font-size: 20px;
+                    font-weight: bold;
+                    line-height: 1.1;
+                    letter-spacing: 0.5px;
+                    text-align: center;
+                    border: 0;
+                    
+                }
+
+                &:nth-child(1), &:nth-child(2) {
+                    a {
+                        border-top: 0;
+                    }
+                }
+
+                &:after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: rem(2);
+                    background-color: $jh-green;
+                    content:'';
+                    transition: all 0.3s 0.1s ease;
+                }
+
+                &.active, &:hover {
+                    a:after {
+                        background-color: transparent;
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }   
+    @media all and (min-width: map-get($grid-breakpoints, md )) {
+        // display: none;
+    }
+    @media all and (min-width: map-get($grid-breakpoints, lg )) {
+        margin-bottom: rem(65);
+    }
+
+    &.home-tab {
+        .tab {
+            &__title {
+                padding-top: 20px;
+                color: $jh-grey-dark;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: bold;
+                font-stretch: normal;
+                line-height: 1.09;
+                letter-spacing: 1px;
+                text-align: center;
+            }
+        }
+
+        .dropdown {
+            position: relative;
+            top: 0;
+            flex-flow: column;
+            padding-top: rem(10);
+            transform: none;
+
+            li {
+                a {
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    line-height: 1.13;
+                    letter-spacing: 1px;
+                    text-indent: rem(15);
+
+                    &:after {
+                        width: calc(100vw - 30px);
+                    }
+                }
+            }
+        }
+
+        @media all and (min-width: map-get($grid-breakpoints, md )) {
+            .tab {
+                &__title {
+                    padding: rem(40) 0;
+                    font-size: rem(40);
+                    font-style: normal;
+                    font-stretch: normal;
+                    font-weight: bold;
+                    line-height: 1;
+                    letter-spacing: 4px;
+                }
+            }
+
+            .dropdown {
+                flex-flow: wrap;
+            }
+        }
+    }
+}

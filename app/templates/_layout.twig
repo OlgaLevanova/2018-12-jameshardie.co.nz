@@ -1,0 +1,98 @@
+{% spaceless %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {# SEO Start #}
+    {% set seo = getSeoField() %}
+    {% if seo is null or seo.title == '' %}
+        {% set seo = craft.seo.custom(siteName, '', false) %}
+    {% endif -%}
+
+    {% set locale = craft.app.locale %}
+    {% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
+
+    <title>{{ seo.title }}</title>
+    <meta name="description" content="{{ seo.description }}" />
+
+    {% set fb = seo.social.facebook -%}
+    <meta property="fb:app_id" content="{{ fb.handle }}">
+    <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ fb.title }}" />
+    <meta property="og:image" content="{{ craft.seo.facebookImage(fb.image) }}" />
+    <meta property="og:description" content="{{ fb.description }}" />
+    <meta property="og:site_name" content="{{ seo.title }}" />
+    <meta property="og:locale" content="{{ locale }}" />
+    {% for locale in locales -%}
+        <meta property="og:locale:alternate" content="{{ locale }}" />
+    {% endfor %}
+
+    {% set tw = seo.social.twitter -%}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="{{ tw.handle }}" />
+    <meta name="twitter:url" content="{{ craft.app.request.absoluteUrl }}" />
+    <meta name="twitter:title" content="{{ tw.title }}" />
+    <meta name="twitter:description" content="{{ tw.description }}" />
+    <meta name="twitter:image" content="{{ craft.seo.twitterImage(tw.image) }}" />
+
+    <link rel="home" href="{{ siteUrl }}" />
+    <link rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
+    {# SEO End #}
+
+    {#<link rel="apple-touch-icon" sizes="57x57" href="/web/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/web/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/web/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/web/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/web/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/web/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/web/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/web/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/web/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/web/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/web/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/web/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/web/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/web/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/web/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">#}
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/web/build/app.css" />
+
+    {% block headerScript %}{% endblock %}
+</head>
+
+{% set colorGreen = "#009A44" %}
+
+<body class="style-guide page-cms-{{ entry is defined ? entry.type|lower : '404' }}">
+    {% set headerTitle = headerTitle is defined ? headerTitle : '' %}
+    {% include 'sections/_overlay' %}
+    {% include 'sections/_header' with { title: headerTitle } %}
+    <div id="test-popup" class="white-popup mfp-hide">
+        Popup content
+    </div>
+    <main id="app">
+        <div id="content" role="main">
+            {% block content %}
+                <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+                <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+            {% endblock %}
+        </div>
+    </main>
+    {% if ignoreFooterBlock is not defined %}
+        {% include 'sections/_footer' %}
+    {% endif %}
+    {% block footerScript %}{% endblock %}
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgwKR_V8J82176trO36Q-AoZhWfok-NYM"></script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script type="text/javascript" src="/build/app.js"></script>
+</body>
+</html>
+{% endspaceless %}

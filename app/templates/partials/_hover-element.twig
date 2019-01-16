@@ -1,0 +1,11 @@
+<{{ element }} class="sib-hover-element {{ classes }}" {% if element == "a" %}href="{{ link }}"{% endif %}>
+    <span class="sib-hover-element__inner">
+        <span class="sib-hover-element__inner__inner">
+            {% if element == "div" %}
+                <input type="submit" value="Button">
+            {% else %}
+                <span>{{ text }}</span>
+            {% endif %}
+        </span>
+    </span>
+</{{ element }}>

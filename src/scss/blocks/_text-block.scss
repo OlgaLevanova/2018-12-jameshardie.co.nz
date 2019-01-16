@@ -1,0 +1,50 @@
+.sib-text-block{
+    color:$jh-grey-dark;
+
+    h2,h3,h4,h5,h6{
+        color:$jh-green;
+        font-weight:300;
+        letter-spacing:1px;
+    }
+    h2{
+        font-size:rem(40);
+        line-height:1.25;
+    }
+    h3{
+        font-size:rem(30);
+        line-height:1.33;
+    }
+    h4{
+        font-size:rem(22);
+        line-height:1.45;
+    }
+    h5{
+        font-size:rem(20);
+        line-height:1.45;
+    }
+    h6{
+        font-size:rem(18);
+        line-height:1.45;
+    }
+    p{
+        margin:rem(32) 0;
+
+        &:first-child{
+            margin-top:0;
+        }
+    }
+    .general-green-text{
+        margin-bottom:rem(38);
+        color:$jh-green;
+        font-size:rem(22);
+        font-weight:300;
+        line-height:1.45;
+        letter-spacing:1px;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(40);
+            font-weight:200;
+            line-height:1.25;
+        }
+    }
+}

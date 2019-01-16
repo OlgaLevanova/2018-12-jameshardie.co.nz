@@ -1,0 +1,23 @@
+
+
+{% block content %}
+
+    {%- if entry.hero|length -%}
+        {% include 'sections/_slider' with {
+            items:entry.hero.all()
+        } %}
+    {%- endif -%}
+
+    {% include "sections/_intro-title" with {
+        intro: entry.introPageTitles.one
+    } %}
+
+    {% set items = entry.children().all() %}
+    {% include "sections/_video-list" with {
+        items:items,
+        title:entry.title,
+        greenText:entry.introText.one.greenText,
+        text:entry.introText.one.sibText
+    } %}
+
+{% endblock %}

@@ -1,0 +1,122 @@
+{% set footerInfo = footer.footerInfo.one %}
+<footer class="sib-footer">
+    <div class="container-fluid">
+        <div class="row sib-footer__contact">
+            <div class="col-lg-5 order-lg-2 sib-footer__social-menu">
+                {#<ul>
+                    {% for social in footerInfo.socialMenu.all %}
+                        <li>
+                            <a href="{{ social.sibLink }}" class="icm-{{ social.sibTitle|lower }}">
+                                <span>{{ social.sibTitle }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>#}
+
+                {% include "partials/_social-menu" with {
+                    socialMenu: footerInfo.socialMenu.all
+                } %}
+
+            </div>
+            <div class="col-lg-7 order-lg-1 sib-footer__call">
+                {% include "partials/_logo.twig" with {
+                    color1: '#000',
+                    color2: colorGreen,
+                    color3: colorGreen
+                } %}
+                <span>{{ footerInfo.contact }}</span>
+            </div>
+        </div>
+        {% if craft.request.lastSegment != "" %}
+        <div class="row sib-footer__get-in-touch">
+            <div class="col-xl-6 col-lg-7 sib-footer__menu">
+                <ul class="menu-l1">
+                {% for item in footer.mainNav.all if item.navEnabled %}
+                    {# Array of subsections #}
+                    {% set navChild1 = item.navLink.getElement().children().level(2).all() %}
+                    {# Array of selected children elements #}
+                    {% set navChild2 = item.navChild.all() %}
+                    <li data-accordion="container">
+                        <a href="{{ item.navLink.url }}" target="{{ item.navLink.target }}">
+                            {{ item.navLink.text }}
+                            {% if navChild1|length or navChild2|length %}
+                                <span class="menu-l1__span icm-arrow-down" data-accordion="trigger"></span>
+                            {% endif %}
+                        </a>
+
+                        {% if navChild1|length or navChild2|length %}
+                            <ul class="menu-l2" data-accordion="target">
+                                {#  #}
+                                {% for childLink in navChild1 %}
+                                    <li>
+                                        <a href="{{ childLink.url }}">
+                                            {{ childLink.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                                {% for childLink in navChild2 %}
+                                    {% set link = childLink.navLink %}
+                                    <li>
+                                        <a href="{{ link.url }}" target="{{ link.target }}">
+                                            {{ link.text }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-xl-6 col-lg-5 sib-footer__newsletter">
+                <form>
+                    <h2>sign up to our newsletter</h2>
+                    <div class="sib-form-group">
+                        <input type="text" name="name" placeholder="NAME & SURNAME">
+                    </div>
+                    <div class="sib-form-group">
+                        <input type="email" name="email" placeholder="EMAIL ADDRESS">
+                    </div>
+                    <div class="sib-form-group">
+                        <select>
+                            <option value="0">Choose</option>
+                            <option value="HOME OWNER">I AM A HOME OWNER</option>
+                            <option value="Industry professional">I AM A Industry professional</option>
+                        </select>
+                    </div>
+                    <div class="sib-form-group form-group-agree">
+                        <input type="checkbox" name="agree" id="agree">
+                        <label for="agree" class="sib-checkbox">
+                            I have read and understood the <a href="#">PRIVACY POLICY</a> and
+                            I agree to receive communications via email.
+                        </label>
+                    </div>
+                    <div class="sib-form-group form-group-button">
+
+                        {% include "/partials/_hover-element" with {
+                            element: "div",
+                            classes: "btn btn-v2 btn-grey btn-border-thin",
+                            text: "",
+                            link: ""
+                        } %}
+
+                        {#<input type="submit" value="Button">#}
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row sib-footer__copyright">
+            <div class="col-lg-8 order-lg-2">
+                <ul>
+                    {% for menu in footerInfo.copyrightMenu.all %}
+                    <li><a href="#" title="{{ menu.sibLink.text }}">{{ menu.sibLink.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-lg-4 order-lg-1 sib-footer__copyright__text">
+                <span>&copy; 2018 All rights reserved. James Hardie<sup>TM</sup></span>
+            </div>
+        </div>
+    </div>
+</footer>

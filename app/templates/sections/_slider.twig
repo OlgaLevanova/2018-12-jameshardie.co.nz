@@ -1,0 +1,89 @@
+
+<section class="sib-slider">
+    <div class="sib-slider__slick">
+        {% for item in items %}
+            <div class="sib-slider__item" style="background-image:url('{{ item.sibImage.one ? item.sibImage.one.url : '/images/DH.jpg' }}')">
+                <div class="sib-slider__svg"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 offset-lg-1 sib-slider__col">
+                            <div class="sib-slider__content">
+                                {% if item.sibTitle is defined and entry.id != 122 and entry.id != 3 %}
+                                    <h2>
+                                        {{ item.sibTitle == '' ? entry.title : item.sibTitle }}
+                                    </h2>
+                                {% endif %}
+
+                                {% if item.sibText is defined and item.sibText is not null %}
+                                    <div class="sib-slider__text">
+                                        {{ item.sibText }}
+                                    </div>
+                                {% endif %}
+
+                                {% if category is defined %}
+                                    <div>{{ category }}</div>
+                                {% endif %}
+
+                                {% if item.sibLink is defined and item.sibLink != '' %}
+
+                                    {% include "/partials/_hover-element" with {
+                                        element: "a",
+                                        classes: "btn btn-v2 btn-white btn-border-thin",
+                                        text: item.sibLink.text,
+                                        link: item.sibLink.url
+                                    } %}
+
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if resistants is defined and resistants|length %}
+    <div class="product-resistants">
+        <div class="container">
+            <div class="d-block d-lg-flex">
+                <div class="row product-logo">
+                    <div class="col">
+                        <div class="product-logo-wrap">
+                            <img src="" alt="detail logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-resistants__slick row" slick-slider>
+                    {% for item in resistants %}
+                        {% set res = item.resistant %}
+                        <div class="col product-resistants__item" 
+                         data-icon="{{res.resistantIcon.last.url}}" 
+                         data-title="{{ res.resistantTitle }}" 
+                         data-text="{{ res.resistantText }}"
+                        >
+                            <div class="item__image-wrap">
+                                <div class="item__image" style="background-image:url('{{ res.resistantIcon.last.url }}')">
+                                </div>
+                            </div>
+                            <div class="item__text">
+                                {{ res.resistantTitle }}
+                            </div>
+                            <div class="item__details-desk">
+                                <div class="row">
+                                    <div class="d-flex align-items-start">
+                                        <img src="{{ res.resistantIcon.last.url}}" alt="icon">
+                                        <div class="col">
+                                            <div class="details__title">{{ res.resistantTitle }}</div>
+                                            <div class="details__text">{{ res.resistantText }}</div>            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="item__details d-block d-lg-none"></div>
+        </div>
+    </div>
+{% endif %}
+</section>

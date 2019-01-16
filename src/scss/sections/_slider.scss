@@ -1,0 +1,168 @@
+.sib-slider{
+    position: relative;
+
+    .sib-slider__item,
+    .container,
+    .row,
+    .row>div{
+        position:relative;
+        min-height:rem(600);
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            min-height:rem(800);
+        }
+    }
+    .sib-slider__item{
+        background-position:center;
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+    .sib-slider__col{
+        &:before{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+    }
+    .sib-slider__svg{
+        position:absolute;
+        top:30%;
+        right:0;
+        bottom:0;
+        left:0;
+        background:url('/images/rectangle-2.svg') left top no-repeat;
+        background-size:cover;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            top:0;
+            right:30%;
+            background:url('/images/rectangle.svg') right top no-repeat;
+            background-size:cover;
+        }
+    }
+    .sib-slider__content{
+        position:absolute;
+        bottom:rem(34);
+        left:0;
+        width:100%;
+        padding:0 rem(35);
+        color:$white;
+        text-align:center;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            top:50%;
+            bottom:auto;
+            padding:0;
+            text-align:left;
+            transform:translateY(-50%);
+        }
+    }
+    h2{
+        position:relative;
+        margin-bottom:rem(70);
+        overflow:visible;
+        font-size:rem(30);
+        font-weight:bold;
+        line-height:1.07;
+        letter-spacing:3px;
+        text-align:center;
+        text-transform:uppercase;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(50);
+            letter-spacing:4px;
+        }
+
+        &:after{
+            position:absolute;
+            bottom:rem(-40);
+            left:50%;
+            width:rem(100);
+            height:2px;
+            background:$white;
+            content:'';
+            transform:translateX(-50%);
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                bottom:rem(-60);
+            }
+        }
+    }
+    .sib-slider__text{
+        padding-bottom:rem(20);
+        color:$white;
+        font-size:rem(50);
+        font-weight:200;
+        line-height:0.9;
+        letter-spacing:1px;
+        text-align:left;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-top:rem(80);
+            padding-bottom:rem(25);
+            font-size:rem(75);
+            line-height:1;
+        }
+    }
+    a{
+        display:inline-block;
+        min-width:rem(240);
+        padding:rem(15) rem(20);
+        text-align:center;
+        /*color:$white;
+        font-size:rem(15);
+        font-weight:bold;
+        text-align:center;
+        text-transform:uppercase;
+        border:2px solid $white;*/
+    }
+    .slick-arrow{
+        position:absolute;
+        top:50%;
+        z-index:2;
+        display:none !important;
+        width:rem(25);
+        height:rem(120);
+        font-size:0;
+        cursor:pointer;
+        background:transparent;
+        border:none !important;
+        opacity:0.6;
+        transition:all 0.2s;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            display:block !important;
+        }
+
+        &.slick-prev{
+            left:rem(50);
+            transform:translateY(-50%);
+        }
+        &.slick-next{
+            right:rem(50);
+            transform:translateY(-50%) rotate(180deg);
+        }
+        &.slick-disabled{
+            cursor:default;
+            opacity:0.05;
+        }
+        &:hover{
+            &:not(.slick-disabled){
+                opacity:1;
+
+                path{
+                    stroke:$jh-green;
+                    stroke-dashoffset:260;
+                }
+            }
+        }
+
+        svg{
+            path{
+                stroke-dasharray:130;
+                stroke-dashoffset:0;
+                transition:all 0.5s;
+            }
+        }
+    }
+}

@@ -1,0 +1,122 @@
+
+.popup-info{
+    display:none;
+}
+img.mfp-img{
+}
+.mfp-top,
+.mfp-bottom{
+    overflow:hidden;
+    color:$white;
+    line-height:1;
+
+    p{
+        padding:0;
+        margin:0;
+    }
+}
+.mfp-top{
+    bottom:100%;
+    border-bottom:2px solid $jh-green;
+}
+.mfp-bottom{
+    width:100%;
+    padding:rem(25) 0 rem(30);
+}
+.mfp-iframe-scaler{
+    .mfp-top{
+        position:absolute;
+        bottom:100%;
+    }
+    .mfp-bottom{
+        position:absolute;
+        top:100%;
+    }
+    .mfp-close{
+        top:rem(-5) !important;
+    }
+}
+.mfp-close{
+    color:$jh-green !important;
+    font-size:rem(50);
+    font-weight:300;
+}
+.mfp-top__inner{
+    width:calc(100% - 50px);
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        width:66%;
+    }
+}
+.mfp-figure{
+    &:after{
+        display:none;
+    }
+    .mfp-close{
+        top:rem(5);
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            top:rem(25);
+        }
+    }
+    .mfp-top{
+        position:relative;
+        width:100%;
+        max-width:1000px;
+        padding-top:rem(10);
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-top:rem(30);
+        }
+    }
+    .mfp-bottom{
+        position:absolute;
+    }
+    img.mfp-img{
+        width:100% !important;
+        max-width:1000px !important;
+        padding-top:rem(35);
+    }
+}
+.mfp-popup-title{
+    font-size:rem(30);
+    font-weight:bold;
+    line-height:1.07;
+    letter-spacing:1px;
+}
+.mfp-subtitle{
+    padding:rem(15) 0 rem(25);
+    font-size:rem(20);
+    font-weight:bold;
+    line-height:1.1;
+    letter-spacing:0.5px;
+}
+.mfp-bottomTitle,
+.mfp-link{
+    font-size:rem(16);
+    font-weight:300;
+    line-height:1.5;
+    letter-spacing:0.6px;
+
+    a{
+        color:$jh-green;
+        font-weight:bold;
+    }
+}
+.mfp-bottomTitle{
+    padding-right:rem(15);
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        float:left;
+        width:60%;
+    }
+}
+.mfp-link{
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        float:right;
+        width:40%;
+        padding-left:rem(15);
+        text-align:right;
+    }
+}

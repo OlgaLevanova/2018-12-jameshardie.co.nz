@@ -1,0 +1,64 @@
+<section class="sib-product-listing">
+    <div class="{% if mode != 'slider' %}container{% endif %} sib-product-listing__inner">
+        <h3>{{ title }}</h3>
+
+        <div
+                class="{% if mode != 'slider' %}row {% endif %}mobile-slick-carousel"
+                data-slick-breakpoint="{{ breakpoint }}"
+                data-list-mode="{{ mode }}"
+        >
+        {# {% set compareProduct = [] %} #}
+            {% for product in products %}
+            
+                <div class="{% if mode != 'slider' %}col-lg-6 col-xl-4 {% endif %}show-more__item show-more__item--hidden" data-show-more-item="item">
+                    {% set styles = '' %}
+
+                    {%- if product.productExcerpt.one -%}
+                        {% set stylesAll = product.productExcerpt.one.styles.all %}
+                        {% for style in stylesAll %}
+                            {% set styles = styles~style %}
+                            {% if stylesAll|length != loop.index %}
+                                {% set styles = styles~'|' %}
+                            {% endif %}
+                        {% endfor %}
+                    {%- endif -%}
+
+                    {# {% set compareProduct = {
+                        link: product.title,
+                        subtitle:styles,
+                        link: product.url,
+                        image: product.productExcerpt.one.sibImage is defined and product.productExcerpt.one.sibImage|length ? product.productExcerpt.one.sibImage.one.url : '/images/placeholder-house.jpg',
+                    } %} #}
+
+                    {% include "partials/_card-flipping" with {
+                        title:product.title,
+                        subtitle:styles,
+                        image: product.productExcerpt.one.sibImage is defined and product.productExcerpt.one.sibImage|length ? product.productExcerpt.one.sibImage.one.url : '/images/placeholder-house.jpg',
+                        socialLinks: false,
+                        text: product.productExcerpt.one.description is defined and product.productExcerpt.one.description|length ? product.productExcerpt.one.description,
+                        link: product.url,
+                        productLinks: product.pageLinks,
+                        buttonText: 'Button',
+                        buttonStyle: 'secondary',
+                        class:''
+                    } %}
+
+                    <div class="sib-product-listing__compare">
+                        <span><input type="checkbox" ></span><p>compare this product</p>
+                        {# data-compare="{{ compareProduct }}" #}
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="button--overlay" data-target="compare-modal">compare</div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% include "partials/_show-more" with {
+                    showItem: showItem
+                } %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,27 @@
+<div class="sib-image-block">
+    <div
+            class="row mobile-slick-carousel"
+            data-slick-breakpoint="992"
+            data-list-mode="bothLeft"
+    >
+        {% for item in block.sibImages %}
+            <div class="col-12 col-lg-{{ 12/(block.sibImages|length|number_format) }}">
+                <a
+                        href="{{ item.sibImage.one.url }}"
+                        class="sib-image-block__image button--image"
+                >
+                    <img src="{{ item.sibImage.one.url }}" alt="">
+                </a>
+                <div class="sib-image-block__text">
+                    {{ item.titleOnPage }}
+                </div>
+                <div class="popup-info">
+                    <div class="popup-title">{{ item.sibTitle }}</div>
+                    <div class="popup-subtitle">{{ item.subTitle }}</div>
+                    <div class="popup-bottomTitle">{{ item.bottomTitle }}</div>
+                    <div class="popup-link">{{ item.sibLink }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

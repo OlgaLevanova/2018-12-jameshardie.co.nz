@@ -1,0 +1,34 @@
+<section>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 sib-block-content">
+                {% include "sections/_block-content" with {
+                    blocks:entry.blockContent
+                } %}
+
+            </div>
+            <div class="col-lg-4 sib-intro-page__testimonial">
+
+                {% if entry.caseStudyLocation != '' %}
+                    {% include "partials/_case-study-details" %}
+                {% endif %}
+
+                {% if entry.pageLinks != '' %}
+                    {% include "partials/_product-details-link" with {
+                        links: entry.pageLinks
+                    } %}
+                {% endif %}
+
+                {% if testimonial is not null %}
+
+                    {% include "partials/_testimonial" with {
+                        text: testimonial.testimonial.one.sibText,
+                        client: testimonial.testimonial.one.client
+                    } %}
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</section>

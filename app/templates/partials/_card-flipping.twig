@@ -1,0 +1,68 @@
+{% set textClass = '' %}
+{% if productLinks is defined and productLinks|length %}
+    {% set textClass = productLinks ? 'hidden' %}
+{% endif %}
+<div class="{{ class }} flipping-card__wrap">
+    <div class="flipping-card__inner">
+
+        <div class="flipping-card__face">
+            <div class="flipping-card__image" style="background-image:url('{{ image }}')">
+
+                {% include "/partials/_hover-element" with {
+                    element: "button",
+                    classes: "btn btn-square1 btn-white btn-border-thick",
+                    text: "Read more",
+                    link: ""
+                } %}
+
+                {#<button class="btn btn-primary"></button>#}
+            </div>
+            <div class="flipping-card__description">
+                <div class="flipping-card__title">
+                    {{ title }}
+                </div>
+                <div class="flipping-card__subtitle">
+                    {{ subtitle }}
+                </div>
+            </div>
+        </div>
+
+        <div class="flipping-card__back">
+            <div class="flipping-card__title">
+                {{ title }}
+            </div>
+            <div class="flipping-card__subtitle">
+                {{ subtitle }}
+            </div>
+            {% if socialLinks %}
+                <div class="flipping-card__social">
+                    {% include "partials/_social-menu" with {
+                        socialMenu: socialLinks.all
+                    } %}
+                </div>
+            {% endif %}
+
+            {% if textClass|length %}
+                <div class="flipping-card__links">
+                    {%- for link in productLinks.all() -%}
+                        <a class="links__item" href="{{ link.url }}">{{ link.title }} <span class="icm-arrow-down"></span></a>
+                    {%- endfor -%}
+                </div>
+            {% endif %}
+
+            <div class="flipping-card__text {{ textClass }}">
+                {{ text }}
+            </div>
+
+            {% include "/partials/_hover-element" with {
+                element: "a",
+                classes: "btn btn-v2 btn-grey btn-border-thin",
+                text: buttonText,
+                link: link
+            } %}
+
+            {#<a href="{{ link }}" class="btn btn-{{- buttonStyle -}}">{{ buttonText }}</a>#}
+        </div>
+
+    </div>
+</div>

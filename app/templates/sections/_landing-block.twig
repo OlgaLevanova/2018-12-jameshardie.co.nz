@@ -1,0 +1,17 @@
+{% set blocksData = [] %}
+
+{% for block in blocks %}
+    {% set blockData = {
+        link: block.homeEntry.one.url,
+        icon: '',
+        title: block.sibTitle,
+        subTitle: block.subTitle,
+        text: block.sibText,
+        buttonText: block.buttonText,
+        background: block.background.one is not null ? block.background.one.url : '/images/DH.jpg'
+    } %}
+
+    {% set blocksData = blocksData|merge([blockData]) %}
+{% endfor %}
+
+{% include 'sections/_half-link' with { blocks: blocksData } %}

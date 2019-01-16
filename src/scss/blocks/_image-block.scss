@@ -1,0 +1,45 @@
+.sib-image-block{
+    .sib-image-block__image{
+        display:block;
+        width:100%;
+    }
+    .sib-image-block__text{
+        color:$jh-green;
+        font-size:rem(16);
+        font-weight:300;
+        line-height:1.5;
+        letter-spacing:normal;
+
+        p{
+            margin:rem(10) 0;
+        }
+        b,strong,a{
+            font-weight:bold;
+        }
+    }
+    @media (max-width: 992px) {
+        .row{
+            margin:0 -3px;
+        }
+        .col-12{
+            padding:0 3px;
+        }
+        .mobile-slick-carousel > .slick-list {
+            width:calc(100% + 13px) !important;
+            padding-right:13px;
+        }
+        .mobile-slick-carousel{
+            .slick-slide{
+                &,
+                &.slick-current{
+                    transform:scale(1);
+                }
+            }
+        }
+    }
+
+    &.product-gallery {
+        margin-bottom: rem(22);
+    }
+
+}

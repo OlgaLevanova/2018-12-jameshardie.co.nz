@@ -1,0 +1,46 @@
+input[type='submit']{
+    cursor:pointer;
+}
+input[type='checkbox'] {
+    display:block;
+    width:0;
+    height:0;
+    opacity: 0;
+
+    & + label.sib-checkbox {
+        position:relative;
+        display:block;
+        color: $jh-grey-dark;
+
+        &:before,
+        &:after {
+            position: absolute;
+            top:4px;
+            left:0;
+            width: rem(20);
+            height: rem(20);
+            margin-top: rem(-3);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: rem(12) rem(12);
+            border: 1px solid $jh-grey-dark;
+            content: '';
+            transition: all 0.4s;
+        }
+
+        &:after {
+            display:block;
+            background-image:url('/images/tick.svg');
+            border: none;
+            opacity:0;
+        }
+    }
+
+    &:checked {
+        & + label.sib-checkbox{
+            &:after{
+                opacity:1;
+            }
+        }
+    }
+}

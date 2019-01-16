@@ -1,0 +1,56 @@
+<section class="sib-video-list">
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <h3 class="sib-video-list__title">{{ title }}</h3>
+                <div class="sib-video-list__green-text">{{ greenText }}</div>
+                <div class="sib-video-list__text">{{ text }}</div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for item in items %}
+                <div class="col-lg-6 col-xl-4 show-more__item show-more__item--hidden" data-show-more-item="item">
+
+                    {% set itemData = item.videoAsset.one %}
+                    {% set image = null  %}
+                    {% set buttonText = 'Watch video' %}
+
+                    {% if itemData.videoCoverImage.one %}
+                        {% set image = itemData.videoCoverImage.one.url  %}
+                    {% endif %}
+
+                    {% set styles = '' %}
+                    {% set stylesAll = itemData.tags.all %}
+                    {% for style in stylesAll %}
+                        {% set styles = styles~style %}
+                        {% if stylesAll|length != loop.index %}
+                            {% set styles = styles~' | ' %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% include "partials/_card-square" with {
+                        block:itemData,
+                        image:image,
+                        buttonText:buttonText,
+                        title:item.title,
+                        subTitle:styles,
+                        videoId:itemData.videoId
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% include "partials/_show-more" with {
+                    showItem: 3,
+                    cardLength: items|length,
+                    showMore: true
+                } %}
+            </div>
+        </div>
+
+    </div>
+</section>

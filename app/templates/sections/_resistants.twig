@@ -1,0 +1,32 @@
+{#{% if resistants is defined and resistants|length %}
+    <section class="product-resistants">
+        <div class="container">
+            <div class="row product-logo">
+                <div class="col">
+                    <div class="product-logo-wrap">
+                        <img src="" alt="detail logo">
+                    </div>
+                </div>
+            </div>
+            <div class="product-resistants__slick row" slick-slider>
+                {% for item in resistants %}
+                    {% set res = item.resistant %}
+                    <div class="col product-resistants__item" 
+                     data-icon="{{res.resistantIcon.last.url}}" 
+                     data-title="{{ res.resistantTitle }}" 
+                     data-text="{{ res.resistantText }}"
+                    >
+                        <div class="item__image-wrap">
+                            <div class="item__image" style="background-image:url('{{ res.resistantIcon.last.url }}')">
+                            </div>
+                        </div>
+                        <div class="item__text">
+                            {{ res.resistantTitle }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="item__details"></div>
+        </div>
+    </section>
+{% endif %}#}

@@ -1,0 +1,84 @@
+{% set categoryPeople = entry.children().level(3).all() %}
+{% set placeholderAvatar = '/images/avatar_placefiller.jpg' %}
+
+<section class="sib-people-listing">
+    <div class="container">
+
+        {% for category in categoryPeople %}
+
+            {% set people = category.children().level(4).all() %}
+
+            <div class="row">
+                <div class="col-12 sib-people-listing__category">
+                    <h3>{{ category.title }}</h3>
+                    <div class="sib-people-listing__intro">
+                        <div class="sib-people-listing__green-text">
+                            {{ category.peopleCategoryTextGreen }}
+                        </div>
+                        <div>
+                            {{ category.peopleCategoryText }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xxl-1"></div>
+                <div class="col-12 col-xxl-10">
+                    <div class="row">
+                        {% for person in people %}
+
+                            <div class="col-12 col-lg-6 col-xxl-4">
+                                <div class="sib-people-listing__person flipping-card__wrap">
+                                    <div class="flipping-card__inner">
+
+                                        {% if person.avatar.one %}
+                                            {% set personImage = person.avatar.one.url %}
+                                        {% else %}
+                                            {% set personImage = placeholderAvatar %}
+                                        {% endif %}
+
+                                        <div class="flipping-card__face">
+                                            <div class="sib-people-listing__image" style="background-image:url('{{ personImage }}')"></div>
+                                            <div class="sib-people-listing__description">
+                                                <div class="sib-people-listing__title">
+                                                    {{ person.title }}
+                                                </div>
+                                                <div class="sib-people-listing__job">
+                                                    {{ person.jobTitle }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flipping-card__back sib-people-listing__overlay">
+                                            <div class="sib-people-listing__title">
+                                                {{ person.title }}
+                                            </div>
+                                            <div class="sib-people-listing__job">
+                                                {{ person.jobTitle }}
+                                            </div>
+                                            {% if person.peopleSocialLinks %}
+                                                <div class="sib-people-listing__social">
+                                                    {% include "partials/_social-menu" with {
+                                                        socialMenu: person.peopleSocialLinks.all
+                                                    } %}
+                                                </div>
+                                            {% endif %}
+                                            <div class="sib-people-listing__text">
+                                                {{ person.peopleText }}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-xxl-1"></div>
+            </div>
+        {% endfor %}
+
+    </div>
+</section>

@@ -1,0 +1,175 @@
+//product-resistants
+.product-resistants {
+    min-height: rem(80);
+    background-color: $black;
+
+    @media all and (min-width: map-get($grid-breakpoints, lg )) {
+        position: relative;
+        top: -80px;
+        max-width: 1440px;
+        margin: 0 auto;
+        background-color: transparent;
+    }
+    .container,
+    .row,
+    .row>div{
+        min-height: 0;
+    }
+    .container {
+        position: relative;
+        width: 120px;
+        padding: 0;
+        margin: 0;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg )) {
+            height: 0;
+        }
+    }
+    .product-logo {
+        width: calc(100vw - 30px);
+        height: rem(70);
+        padding-bottom: rem(15);
+        margin: 0 rem(15) rem(15);
+        border-bottom: rem(1) $jh-green solid;
+        @media all and (min-width: map-get($grid-breakpoints, lg )) {
+            border: 0;
+        }
+        &-wrap {
+            padding: rem(20) 0;
+        }
+    }
+    &__slick {
+        position: relative;
+        bottom: 0;
+        display: flex;
+        flex-flow: wrap;
+        width: 100%;
+        padding-bottom: rem(10);
+        color: $white;
+    }
+
+    &__item {
+        position: relative;
+        width: rem(90);
+        max-width: rem(90);
+        padding: 0;
+        padding-left:20px;
+        text-align: center;
+        // margin: 0 rem(10);
+        .item {
+            &__image-wrap {
+                width: rem(45);
+                height: rem(45);
+                padding: 0;
+                margin: 0 auto;
+            }
+            &__image {
+                flex: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            &__text {
+                font-size: rem(10);
+            }
+        }
+        &:after {
+            position: absolute;
+            top: rem(87);
+            // left: rem(35);
+            width: 0;
+            height: 0;
+            border-color: $jh-green transparent transparent transparent;
+            border-style: solid;
+            border-width: 7px 7px 0 7px;
+            content: '';
+            opacity: 0;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg )) {
+                top: rem(80);
+            }
+        }
+
+        &:hover, &.active {
+            &:after {
+                opacity: 1;
+            }
+            @media all and (min-width: map-get($grid-breakpoints, lg )) {
+                .item__details-desk {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .item__details, .item__details-desk {
+        .row {
+            margin:0;
+        }
+
+        position: relative;
+        top: 0;
+        left: 0;
+        width: calc(100vw - 30px);
+        padding: rem(30) 0;
+        margin: 0 rem(15);
+        color: $white;
+        text-align: left;
+        border-top: rem(1) $jh-green solid;
+        opacity: 1;
+        @media all and (min-width: map-get($grid-breakpoints, lg )) {
+            position: absolute;
+            top: rem(80);
+            display: none;
+            max-width: rem(375);
+            padding-right: rem(30);
+            padding-left: rem(30);
+            background-color: $jh-grey-dark;
+            border:0;
+        }
+
+        img {
+            max-width: rem(40);
+        }
+        .details {
+            &__title {
+                padding-bottom: rem(5);
+                // margin-bottom: rem(9);
+                font-size: rem(12);
+                font-style: normal;
+                font-weight: bold;
+                font-stretch: normal;
+                line-height: 1.5;
+                letter-spacing: 0.5px;
+                // border-bottom: 1px $jh-green solid;
+            }
+            &__text {
+                padding-bottom: rem(35);
+                font-size: rem(10);
+                font-weight: 300;
+            }
+        }
+        .brb {
+            border-bottom: 1px $jh-grey-light solid;
+            @media all and (min-width: map-get($grid-breakpoints, lg )) {
+                border:0;
+            }
+        }
+    }
+    .item__details-desk {
+        display: none;
+    }
+    .slick-list {
+        z-index: 1;
+        width: 100%;
+        overflow: visible;
+
+        .slick-track {
+            margin:0;
+
+            // .slick-slide {
+            //     width: auto !important;
+            // }
+        }
+    }
+}

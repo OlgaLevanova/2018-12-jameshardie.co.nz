@@ -1,0 +1,58 @@
+.sib-intro-text{
+    .sib-intro-text__intro{
+
+        >div,
+        & + div > .sib-testimonial{
+            border-top:1px solid $jh-green;
+        }
+        >div{
+            padding-top:rem(10);
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                padding-top:rem(20);
+            }
+        }
+        & + div:not(.sib-intro-text__contact){
+            @media all and (max-width: map-get($grid-breakpoints, lg)) {
+                display:none;
+            }
+        }
+    }
+
+    @import '../partials/testimonial';
+
+    .sib-intro-text__phone{
+        padding:rem(30) 0 rem(20);
+        color:$jh-grey-dark;
+        font-size:rem(30);
+        font-weight:bold;
+        line-height:1.07;
+        letter-spacing:1px;
+        text-align:center;
+        text-transform:uppercase;
+        border-top:1px solid $jh-green;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding:rem(70) 0 rem(35);
+            font-size:rem(52);
+            line-height:0.79;
+            letter-spacing:1px;
+        }
+    }
+    .sib-intro-text__phone-text{
+        padding-bottom:rem(30);
+        color:$jh-grey-dark;
+        font-size:rem(20);
+        font-weight:bold;
+        line-height:1.1;
+        letter-spacing:0.5px;
+        text-align:center;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-bottom:0;
+            font-size:rem(30);
+            line-height:1.37;
+            letter-spacing:1px;
+        }
+    }
+}

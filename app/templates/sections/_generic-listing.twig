@@ -1,0 +1,31 @@
+<section class="sib-generic-listing">
+    <div class="sib-generic-listing__title">{{ title }}</div>
+    <div class="container">
+        <div class="row">
+            {% for item in items %}
+                <div class="col-12 col-lg-6 col-xxl-4">
+
+                    {% set image = null  %}
+                    {% set buttonText = null %}
+
+                    {% if item.excerptGenericList.one %}
+                        {% if item.excerptGenericList.one.sibImage.one %}
+                            {% set image = item.excerptGenericList.one.sibImage.one.url  %}
+                        {% endif %}
+                        {% set buttonTextExcerpt = item.excerptGenericList.one.buttonText %}
+                        {% if buttonTextExcerpt != '' %}
+                            {% set buttonText = buttonTextExcerpt %}
+                        {% endif %}
+                    {% endif %}
+
+                    {% include "partials/_card-square" with {
+                        image:image,
+                        buttonText:buttonText,
+                        title:item.title,
+                        subTitle:item.subTitle
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

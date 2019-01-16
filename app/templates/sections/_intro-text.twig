@@ -1,0 +1,26 @@
+<section class="sib-intro-text">
+    <div class="container">
+        <div class="row">
+            <div class="{{ testimonial or contact is defined ? 'col-lg-8 ' : 'col-12 ' }}sib-intro-text__intro">
+                {% include "partials/_general-text" with {
+                    greenText: intro.greenText,
+                    text: intro.sibText
+                } %}
+            </div>
+            {% if testimonial and intro.testimonial.one is not null %}
+                <div class="col-lg-4">
+                    {% include "partials/_testimonial" with {
+                        text: intro.testimonial.one.testimonial.one.sibText,
+                        client: intro.testimonial.one.testimonial.one.client
+                    } %}
+                </div>
+            {% endif %}
+            {% if contact is defined %}
+                <div class="col-lg-4 sib-intro-text__contact">
+                    <div class="sib-intro-text__phone">{{ intro.contactPhone }}</div>
+                    <div class="sib-intro-text__phone-text">{{ intro.contactPhoneText }}</div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

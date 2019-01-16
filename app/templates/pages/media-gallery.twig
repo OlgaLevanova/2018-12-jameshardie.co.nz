@@ -1,0 +1,27 @@
+
+{% block content %}
+
+    {%- if entry.hero|length -%}
+        {% include 'sections/_slider' with {
+            items:entry.hero.all()
+        } %}
+    {%- endif -%}
+
+    {% include "sections/_intro-title" with {
+        intro: entry.introPage.one
+    } %}
+
+    {% include "sections/_intro-text" with {
+        testimonial: entry.introPage.one.testimonial.one is not null ? true : false,
+        intro: entry.introPage.one
+    } %}
+
+    {% include "sections/_media-list" with {
+        media: entry.gallery.all(),
+        title: "Product inspiration gallery",
+        cardLength: entry.gallery.all()|length,
+        showMore: true,
+        showItem: 8
+    } %}
+
+{% endblock %}

@@ -1,0 +1,130 @@
+.sib-people-listing{
+    padding-bottom:rem(70);
+
+    p{
+        margin:0;
+    }
+    .flipping-card__wrap .flipping-card__wrap,
+    .flipping-card__wrap .flipping-card__inner{
+        height:rem(450);
+    }
+    .sib-people-listing__category{
+        padding-top:rem(80);
+
+        h3{
+            padding:0 0 rem(30);
+            color:$jh-grey-dark;
+            font-size:rem(22);
+            font-weight:bold;
+            line-height:1.09;
+            letter-spacing:1px;
+            text-align:center;
+            text-transform:uppercase;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                font-size:rem(40);
+                line-height:1;
+                letter-spacing:4px;
+            }
+        }
+    }
+    .sib-people-listing__intro{
+        padding-bottom:rem(44);
+        color:$jh-grey-dark;
+        font-size:rem(16);
+        font-weight:300;
+        line-height:1.27;
+        letter-spacing:1px;
+        text-align:center;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(22);
+        }
+    }
+    .sib-people-listing__green-text{
+        padding-bottom:rem(30);
+        color:$jh-green;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(40);
+            font-weight:200;
+            line-height:1;
+        }
+    }
+    .sib-people-listing__person{
+        position:relative;
+        margin-bottom:rem(30);
+    }
+    .sib-people-listing__image{
+        height:rem(330);
+        background-position:center;
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+    .sib-people-listing__description{
+        padding:rem(24) 0 rem(10);
+
+        .sib-people-listing__job,
+        .sib-people-listing__title{
+            padding-right:rem(15);
+            padding-left:rem(15);
+        }
+    }
+    .sib-people-listing__title{
+        color:$jh-grey-dark;
+        font-size:rem(20);
+        font-weight:bold;
+        line-height:1.1;
+        letter-spacing:0.5px;
+    }
+    .sib-people-listing__job{
+        padding-top:rem(9);
+        padding-bottom:rem(15);
+        color:$jh-green;
+        font-size:rem(16);
+        font-weight:300;
+        line-height:1.5;
+        letter-spacing:normal;
+    }
+    .sib-people-listing__overlay{
+        padding:rem(40) rem(20) 0;
+        background:$jh-grey-light-3;
+
+        .sib-people-listing__job{
+            border-bottom:2px solid $jh-green;
+        }
+        .sib-social-menu{
+            ul{
+                padding-top:rem(15);
+                padding-bottom:rem(10);
+                font-size:rem(22);
+            }
+            li{
+                &:first-child{
+                    a{
+                        padding-left:0;
+                    }
+                }
+                &:last-child{
+                    a{
+                        padding-right:0;
+                    }
+                }
+            }
+            a{
+                padding:0 rem(6);
+            }
+        }
+    }
+    .sib-people-listing__social{
+        ul{
+            text-align:left;
+        }
+    }
+    .sib-people-listing__text{
+        font-size:rem(16);
+        font-weight:300;
+        line-height:1.5;
+        letter-spacing:normal;
+    }
+}

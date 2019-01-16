@@ -1,0 +1,16 @@
+.page-cms-404 {
+
+    article.content {
+        h3 {
+            margin: rem(60) 0 rem(115);
+            font-size: rem(24);
+            font-weight: 700;
+            line-height: 1.1;
+            @media all and (min-width: map-get($grid-breakpoints, md)) {
+                margin: rem(60) 0 rem(95);
+                font-size: rem(40);
+                line-height: 1.5;
+            }
+        }
+    }
+}

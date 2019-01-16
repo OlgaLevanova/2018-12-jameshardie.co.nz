@@ -1,0 +1,47 @@
+<div class="sib-case-study-details">
+    {% if entry.caseStudyLocation != '' %}
+        <div>
+            <h5>Location</h5>
+            <div class="sib-case-study-details__text">
+                {{ entry.caseStudyLocation }}
+            </div>
+        </div>
+    {% endif %}
+    {% if entry.featuredProducts %}
+        <div class="sib-case-study-details__featured-projects">
+            <h5>Featured Products</h5>
+            <ul class="sib-case-study-details__text">
+                {% for product in entry.featuredProducts.all %}
+                    <li>
+                        <a href="{{ product.url }}">
+                            {{ product.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    {% if entry.projectType != '' %}
+        <div>
+            <h5>Project Type</h5>
+            <div class="sib-case-study-details__text">
+                {{ entry.projectType }}
+            </div>
+        </div>
+    {% endif %}
+    {% if entry.architect != '' %}
+        <div>
+            <h5>Architect</h5>
+            <div class="sib-case-study-details__text">
+                {{ entry.architect }}
+            </div>
+        </div>
+    {% endif %}
+    {% if entry.caseStudyFile.one %}
+        <div class="sib-case-study-details__download">
+            <a href="{{ entry.caseStudyFile.one.url }}">
+                Download case study
+            </a>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,45 @@
+<section class="sib-case-study-listing">
+    <div class="{% if mode != 'slider' %}container{% endif %} sib-case-study-listing__inner">
+        <h3>{{ title }}</h3>
+
+        <div
+                class="{% if mode != 'slider' %}row {% endif %}mobile-slick-carousel"
+                data-slick-breakpoint="{{ breakpoint }}"
+                data-list-mode="{{ mode }}"
+        >
+            {% for caseStudy in caseStudies %}
+                <div class="{% if mode != 'slider' %}col-lg-6 col-xl-4 {% endif %}show-more__item show-more__item--hidden" data-show-more-item="item">
+
+                    {% set styles = '' %}
+                    {% set stylesAll = caseStudy.caseStydeExcerpt.one.styles.all %}
+                    {% for style in stylesAll %}
+                        {% set styles = styles~style %}
+                        {% if stylesAll|length != loop.index %}
+                            {% set styles = styles~'|' %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% include "partials/_card-flipping" with {
+                        title:caseStudy.title,
+                        subtitle:styles,
+                        image: caseStudy.caseStydeExcerpt.one.sibImage.one ? caseStudy.caseStydeExcerpt.one.sibImage.one.url : '/images/placeholder-house.jpg',
+                        socialLinks: false,
+                        text:caseStudy.caseStydeExcerpt.one.description,
+                        link:caseStudy.url,
+                        buttonText:'VIEW CASE STUDY',
+                        buttonStyle: 'primary',
+                        class:''
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% include "partials/_show-more" with {
+                    showItem: showItem
+                } %}
+            </div>
+        </div>
+    </div>
+</section>

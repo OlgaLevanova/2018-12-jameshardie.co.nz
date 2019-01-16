@@ -1,0 +1,30 @@
+<section class="sib-half-link">
+    <div class="container-fluid">
+        <div class="row">
+            {% for block in blocks %}
+                <a href="{{ block.link }}"
+                   class="col-md-6 sib-half-link__item sib-half-link__{{ loop.index }}"
+                   style="background-image:url('{{ block.background }}');">
+                    <div class="sib-half-link__content">
+                        {% if block.title != '' %}<h2>{{ block.title }}</h2>{% endif %}
+                        {% if block.icon != '' %}{{ block.icon }}{% endif %}
+                        <h3>{{ block.subTitle }}</h3>
+                        <p>{{ block.text }}</p>
+
+                        {% include "/partials/_hover-element" with {
+                            element: "button",
+                            classes: "btn btn-v2 btn-white btn-border-thin",
+                            text: block.buttonText,
+                            link: ""
+                        } %}
+                    </div>
+                </a>
+            {% endfor %}
+            <div class="sib-half-link__background">
+                {% for block in blocks %}
+                    <div style="background-image:url('{{ block.background }}');"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,87 @@
+.sib-link-blocks{
+    position:relative;
+    margin:rem(40) 0;
+    font-size:rem(16);
+    font-weight:400;
+    line-height:1.07;
+    letter-spacing:1px;
+    text-align: center;
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        font-size:rem(30);
+        letter-spacing:3px;
+    }
+
+    .row{
+        >div{
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                border-right:2px solid $jh-green;
+
+                &:last-child{
+                    border:none;
+                }
+            }
+        }
+    }
+    .sib-link-blocks__inner{
+        padding:rem(27) 0 rem(40);
+        color:$jh-grey-dark;
+        border-bottom:2px solid $jh-grey-light-2;
+        transition:all 0.2s;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding:rem(14) 0 rem(21);
+            border-bottom:none;
+        }
+
+        &:hover{
+            color:$jh-green;
+
+            /*a{
+                color:$white;
+                background:rgba($jh-green, 0.35);
+                border-color:$jh-green;
+                transition:all 0.2s;
+
+                @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                }
+            }*/
+        }
+    }
+    h3{
+        padding-bottom:rem(23);
+        font-family:$font-secondary;
+        font-size:rem(55);
+        font-weight:normal;
+        line-height:1.18;
+        letter-spacing:normal;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-bottom:rem(38);
+            font-size:rem(95);
+        }
+    }
+    .sib-link-blocks__text{
+        height:rem(55);
+        font-weight:400;
+        text-transform:uppercase;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            height:rem(125);
+        }
+    }
+    a{
+        display:block;
+        max-width:rem(240);
+        padding:rem(10) rem(15);
+        margin:0 auto;
+        font-size:rem(15);
+        font-weight:bold;
+        line-height:1.13;
+        letter-spacing:1px;
+        text-transform:uppercase;
+    }
+    .sib-hover-element__inner__inner{
+        font-weight:normal;
+    }
+}

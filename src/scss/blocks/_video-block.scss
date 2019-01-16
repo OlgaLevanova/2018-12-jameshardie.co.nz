@@ -1,0 +1,43 @@
+.sib-video-block{
+    .sib-video-block__image{
+        position:relative;
+
+        img{
+            display:block;
+            width:100%;
+        }
+        button{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:rem(240);
+            height:rem(240);
+            text-align:center;
+            transform:translate(-50%, -50%);
+
+            @media all and (max-width: map-get($grid-breakpoints, lg)) {
+                width:rem(110);
+                height:rem(110);
+                font-size:rem(20);
+                line-height:1.2;
+                letter-spacing:0.5px;
+            }
+        }
+    }
+    .sib-video-block__title{
+        color:$jh-green;
+        font-size:rem(12);
+        font-weight:bold;
+        line-height:1.5;
+        letter-spacing:0.5px;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(20);
+            line-height:1.1;
+        }
+
+        p {
+            margin: rem(10) 0;
+        }
+    }
+}

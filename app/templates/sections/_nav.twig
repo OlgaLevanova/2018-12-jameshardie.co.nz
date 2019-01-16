@@ -1,0 +1,91 @@
+{#{% cache globally using key 'g_header' %}#}
+{% set nav = siteNavigation.mainNav %}
+
+{% spaceless %}
+<nav class="sib-nav">
+    <ul class="sib-nav__mobile-menu">
+        <li><a href="#">CN</a></li>
+        <li><a href="#">Search</a></li>
+        <li>
+            <div id="sib-nav__mobile-menu__toggle">
+                <div id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="cross">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="sib-nav__wrapper">
+        <ul class="sib-nav__level-1">
+            {% for item in nav.all() if item.navEnabled %}
+
+                {# Array of subsections #}
+                {% if item.includeAllChildren or item.includeFirstLevelChildren %}
+                    {% set navChild1 = item.navLink.getElement().children().level(2).all() %}
+                {% endif %}
+
+                {# Array of selected children elements #}
+                {% set navChild2 = item.navChild.all() %}
+
+                {% set hasChildren = false %}
+                {% if navChild1|length or navChild2|length %}
+                    {% set hasChildren = true %}
+                {% endif %}
+
+                <li class="sib-nav__level-1__li{% if item.includeAllChildren %} sib-nav__level-1__li--mega{% endif %}">
+                    <a href="{{ item.navLink.url }}" target="{{ item.navLink.target }}" class="{{ hasChildren ? 'hasChild' }}">
+                        {{ item.navLink.text }}
+                        {{ hasChildren ? ' <span class="icm-arrow-down sib-nav__toggle" data-ref="parent"></span>' }}
+                    </a>
+                    {% if hasChildren %}
+                        <ul class="sib-nav__level-2">
+
+                            {% for childLink in navChild1 %}
+                                <li>
+                                    <a href="{{ childLink.url }}" title="{{ childLink.title }}">
+                                        {{ childLink.title }}
+                                        {% if item.includeAllChildren %}
+                                            <span class="icm-arrow-down sib-nav__toggle" data-ref="parent"></span>
+                                        {% endif %}
+                                    </a>
+
+                                    {% if item.includeAllChildren %}
+                                        {% set navChild3 = childLink.children().level(3).all() %}
+
+                                        {% if navChild3|length %}
+                                            <ul class="sib-nav__level-3">
+                                                {% for childLink in navChild3 %}
+                                                    <li>
+                                                        <a href="{{ childLink.url }}">
+                                                            {{ childLink.title }}
+                                                        </a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+
+                            {% for childLink in navChild2 %}
+                                {% set link = childLink.navLink %}
+                                <li>
+                                    <a href="{{ link.url }}" target="{{ link.target }}" data-url="{{ link.url }}">
+                                        {{ link.text }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+{% endspaceless %}
+{#{% endcache %}#}

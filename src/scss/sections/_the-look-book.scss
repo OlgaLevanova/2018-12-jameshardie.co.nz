@@ -1,0 +1,127 @@
+.sib-the-look-book{
+    margin:rem(130) 0 rem(40);
+    color:$jh-grey-dark;
+    font-size:rem(16);
+    font-weight:300;
+    line-height:1.25;
+    letter-spacing:1px;
+    text-align: center;
+    background-color:rgba($jh-green, 0.12);
+
+    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        margin:rem(40) 0;
+    }
+
+    .row{
+        >div{
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                min-height:rem(250);
+            }
+        }
+    }
+    img{
+        width:rem(300);
+        max-width:100%;
+        margin:rem(-90) 0 0 rem(10);
+
+        @media all and (min-width: map-get($grid-breakpoints, sm)) {
+            margin-left:rem(100);
+        }
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:rem(300);
+            margin:0 0 0 rem(40);
+            transform:translate(-50%, -50%);
+        }
+        @media all and (min-width: 1330px) {
+            width:rem(410);
+            margin:0 0 0 rem(100);
+        }
+    }
+    h3{
+        position:relative;
+        padding:rem(26) 0 rem(22);
+        margin-bottom:rem(25);
+        font-family:$font-secondary;
+        font-size:rem(55);
+        font-weight: normal;
+        line-height: 1.18;
+        letter-spacing:normal;
+        white-space:nowrap;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(80);
+            line-height: 1.26;
+        }
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            font-size:rem(95);
+        }
+
+        &:after{
+            position:absolute;
+            bottom:0;
+            left:50%;
+            width:rem(100);
+            height:2px;
+            background:$jh-grey-dark;
+            content:'';
+            transform:translateX(-50%);
+        }
+    }
+    h4{
+        padding-bottom:rem(12);
+        font-size:rem(22);
+        font-weight:bold;
+        line-height:1.09;
+        letter-spacing:1px;
+        text-align:center;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+        }
+    }
+    .sib-the-look-book__text{
+        padding-bottom:rem(35);
+    }
+    p{
+        margin:0;
+    }
+    a{
+        position:relative;
+        display:block;
+        width:rem(240);
+        height:rem(45);
+        margin:0 auto rem(30);
+        color:$jh-grey-dark;
+        font-size:rem(15);
+        font-weight:normal;
+        line-height:1.13;
+        letter-spacing:1px;
+        text-transform:uppercase;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:rem(160);
+            height:rem(160);
+            margin:0 auto;
+            font-size:rem(20);
+            font-weight:bold;
+            line-height:1.2;
+            letter-spacing:0.9px;
+            transform:translate(-50%, -50%);
+        }
+
+        /*span{
+            position:absolute;
+            top:50%;
+            right:0;
+            left:0;
+            display:block;
+            padding:0 rem(15);
+            transform:translateY(-50%);
+        }*/
+    }
+}

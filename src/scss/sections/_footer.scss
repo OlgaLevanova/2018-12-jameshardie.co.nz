@@ -1,0 +1,419 @@
+.sib-footer {
+    .sib-footer__contact{
+        padding-top:0;
+        padding-bottom:0;
+        border-top:1px solid $jh-grey-light-2;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-top:rem(18);
+            padding-bottom:rem(18);
+        }
+    }
+    .sib-footer__call{
+        align-items:center;
+        padding-top:rem(11);
+        padding-bottom:rem(17);
+        font-size:rem(14);
+        font-weight:bold;
+        letter-spacing:0.5px;
+        text-align:center;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            display:flex;
+            padding-top:0;
+            padding-bottom:0;
+            text-align:left;
+        }
+
+        svg{
+            width:230px;
+
+            #sib-logo__svg-3{
+                transform-origin:60px 20px;
+                transition:all 0.6s;
+            }
+            &:hover{
+                #sib-logo__svg-3{
+                    transform:scale(1.05) rotateY(-360deg);
+                }
+            }
+        }
+        span{
+            display:block;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:inline;
+                padding-left:rem(18);
+            }
+        }
+        sup{
+            font-weight:normal;
+        }
+        p{
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:inline;
+            }
+        }
+    }
+    .sib-footer__social-menu{
+        .sib-social-menu{
+            ul{
+                padding:rem(14) 0 rem(11);
+                margin:0;
+                font-size:rem(30);
+                text-align:center;
+
+                @media all and (min-width:map-get($grid-breakpoints, lg)){
+                    padding:rem(9) 0 0;
+                    text-align:right;
+                    border-width:0;
+                }
+            }
+        }
+        /*ul{
+            padding:rem(14) 0 rem(11);
+            margin:0;
+            font-size:rem(30);
+            text-align:center;
+            border:solid $jh-grey-light;
+            border-width:1px 0;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                padding:rem(9) 0 0;
+                text-align:right;
+                border-width:0;
+            }
+        }
+        li{
+            display:inline-block;
+
+            span{
+                display:none;
+            }
+        }
+        a{
+            position:relative;
+            padding:0 rem(18);
+            color:$jh-grey-dark;
+
+            &:hover{
+                color:$jh-green;
+            }
+        }*/
+    }
+    .sib-footer__copyright{
+        color:$jh-grey-light;
+        font-size:rem(10);
+        font-weight:300;
+        text-align:center;
+        border-top:2px solid $jh-green;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            font-size:rem(14);
+            text-align:left;
+            border-top:2px solid $jh-green;
+        }
+
+        .sib-footer__copyright__text{
+            padding-top:rem(15);
+            padding-bottom:rem(15);
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                padding-top:rem(36);
+                padding-bottom:rem(36);
+            }
+        }
+        ul{
+            margin:0;
+            font-size:rem(15);
+            font-weight:400;
+            line-height:1.17;
+            letter-spacing:1px;
+            text-align:center;
+            text-transform:uppercase;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                font-size:rem(12);
+                text-align:right;
+            }
+        }
+        li{
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:inline-block;
+            }
+        }
+        a{
+            position:relative;
+            display:block;
+            padding:rem(22) rem(18);
+            color:$jh-grey-dark;
+            text-align:left;
+            border-bottom:1px solid $jh-grey-light;
+            transition:all 0.2s;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:inline-block;
+                padding:rem(41) rem(15);
+                text-align:center;
+                border-bottom:none;
+            }
+            @media all and (min-width: map-get($grid-breakpoints, xl)) {
+                padding-right:rem(30);
+                padding-left:rem(30);
+            }
+            @media all and (min-width: 1400px) {
+                padding-right:rem(50);
+                padding-left:rem(50);
+            }
+            &:before {
+                display:block;
+                height:0;
+                overflow:hidden;
+                font-weight:bold;
+                content:attr(title);
+                visibility:hidden;
+            }
+            &:hover{
+                color:$jh-green;
+                font-weight:bold;
+
+                &:after{
+                    width:100%;
+                }
+            }
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                @include hoverLine();
+
+                &:after{
+                    top:0;
+                }
+            }
+        }
+    }
+    .sib-footer__get-in-touch{
+        background:$jh-grey-light-2;
+
+        @media all and (min-width: map-get($grid-breakpoints, xl)) {
+            padding-top:rem(70);
+            padding-bottom:rem(70);
+        }
+    }
+    .sib-footer__menu{
+        font-weight:bold;
+        line-height:1.13;
+        letter-spacing:1px;
+        text-transform:uppercase;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-top:rem(35);
+        }
+
+        a{
+            display:block;
+            color:$jh-grey-dark;
+
+            &:hover{
+                color:$jh-green;
+                font-weight:bold !important;
+            }
+        }
+        ul{
+            margin:0;
+        }
+        >ul{
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:flex;
+            }
+
+            >li{
+                position:relative;
+                border-bottom:1px solid $jh-grey-dark;
+
+                @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                    flex:0 0 33.3333%;
+                    padding-right:calc(#{$grid-gutter-width} / 2);
+                    border-bottom:none;
+                }
+
+                &:last-child{
+                    padding-right:0;
+                }
+                >a{
+                    position:relative;
+                    padding-top:rem(25);
+                    padding-bottom:rem(25);
+                    font-size:rem(20);
+
+                    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                        padding-top:0;
+                        padding-bottom:rem(15);
+                        font-size:rem(22);
+                    }
+                }
+                .menu-l1__span{
+                    position:absolute;
+                    top:0;
+                    right:0;
+                    bottom:0;
+                    display:block;
+                    width:rem(35);
+                    cursor:pointer;
+                    transform:translate(0, 0);
+
+                    @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                        display:none;
+                    }
+
+                    @include hoverIcon($jh-green, 50px);
+
+                    &:before{
+                        position:absolute;
+                        top:50%;
+                        left:50%;
+                        display:block;
+                        transform:translate(-50%, -50%);
+                    }
+                }
+            }
+        }
+        .menu-l2{
+            height:0;
+            overflow:hidden;
+
+            @media all and (min-width: map-get($grid-breakpoints, lg)) {
+                display:block;
+                height:auto;
+                overflow:visible;
+            }
+
+            &.open-js{}
+
+            li{
+                border-bottom:1px solid $jh-grey-dark;
+            }
+            a{
+                padding:rem(13) 0 rem(16);
+                font-size:rem(15);
+                font-weight:400;
+            }
+        }
+    }
+    .sib-footer__newsletter{
+
+        h2{
+            position:relative;
+            padding-bottom:rem(20);
+            margin-bottom:rem(16);
+            color:$jh-green;
+            font-size:rem(30);
+            font-weight:bold;
+            line-height:1.07;
+            letter-spacing:3px;
+            text-transform:uppercase;
+
+            @media all and (min-width: map-get($grid-breakpoints, xl)) {
+                font-size:rem(40);
+                line-height:1;
+                letter-spacing:2px;
+            }
+
+            &:after{
+                position:absolute;
+                bottom:0;
+                left:0;
+                display:block;
+                width:rem(92);
+                height:2px;
+                background:$jh-green;
+                content:'';
+            }
+        }
+        form{
+            padding:rem(41) rem(23) rem(31);
+            overflow:hidden;
+            background:rgba($jh-green, 0.2);
+
+            @media all and (min-width: map-get($grid-breakpoints, xl)) {
+                padding:rem(35) rem(50);
+            }
+        }
+        .sib-form-group{
+            padding-bottom:5px;
+        }
+        input[type=text],
+        input[type=email],
+        select{
+            display:block;
+            width:100%;
+            height:rem(35);
+            padding-right:rem(20);
+            padding-left:rem(20);
+            font-family:$font-primary;
+            font-size:15px;
+            background:$white;
+            border:none;
+
+            @include placeholder ($jh-grey-light, 15px);
+        }
+        select{
+            color:$jh-green;
+            font-family:$font-primary;
+            font-size:rem(15);
+            font-weight:bold;
+            line-height:1.13;
+            letter-spacing:1px;
+            text-transform:uppercase;
+            background:$white url("/images/icon-arrow-drop-down.svg") right 10px top 12px no-repeat;
+            background-size:23px 12px;
+            border-radius:0;
+
+            @include select();
+
+            option{
+                font-weight:bold;
+            }
+        }
+        .form-group-agree{
+            font-size:rem(11);
+            font-weight:300;
+            line-height:1.27;
+
+            @media all and (min-width: map-get($grid-breakpoints, xl)) {
+                float:left;
+                width:calc(100% - 220px);
+            }
+
+            label{
+                padding-right:rem(15);
+                padding-left:rem(30);
+            }
+        }
+        .form-group-button{
+            padding-top:rem(15);
+            text-align:center;
+
+            @media all and (min-width: map-get($grid-breakpoints, xl)) {
+                float:right;
+                width:220px;
+                padding-top:rem(5);
+                text-align:right;
+            }
+
+            .btn{
+                width:100% !important;
+                max-width:220px !important;
+            }
+            input{
+                width:100%;
+                height:rem(39);
+                max-width:220px;
+                margin:0;
+                font-size:rem(15);
+                text-transform:uppercase;
+                background:none;
+                border:none;
+            }
+        }
+    }
+}

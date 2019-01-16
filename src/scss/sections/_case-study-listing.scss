@@ -1,0 +1,32 @@
+.sib-case-study-listing{
+
+    @include greyBackBlock();
+
+    .sib-case-study-listing__inner{
+        padding-top:rem(57);
+        padding-bottom:rem(30);
+
+        @media all and (max-width: map-get($grid-breakpoints, lg)) {
+            padding-top:rem(32);
+            padding-right:0;
+            padding-left:0;
+        }
+    }
+    h3{
+        padding-bottom:rem(18);
+        color:$jh-grey-dark;
+        font-size:rem(20);
+        font-weight:bold;
+        line-height:1.1;
+        letter-spacing:0.5px;
+        text-align:center;
+        text-transform:uppercase;
+
+        @media all and (min-width: map-get($grid-breakpoints, lg)) {
+            padding-bottom:rem(55);
+            font-size:rem(40);
+            line-height:1;
+            letter-spacing:4px;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+<section class="sib-we-recommend sib-half-link">
+    <div class="sib-we-recommend__header">
+        <button class="we-recommend__js-prev">Go prev</button>
+        <h2 class="sib-we-recommend__title">CHOOSE YOUR STYLE</h2>
+    </div>
+    <div class="container-fluid">
+
+        {% set loopIndex = 0 %}
+
+        {% for items in recommendBlock %}
+            {% if items is iterable and loopIndex < 3 %}
+
+                {% set loopIndex = loopIndex + 1 %}
+
+                <div class="row sib-we-recommend__inner we-recommend__js-wrapper{% if loopIndex != 1 %} disable-js{% endif %}" data-recommend="{{ loopIndex }}">
+                    {% for item in items %}
+                        <div
+                                class="col-md-6 sib-we-recommend__item sib-half-link__item sib-half-link__{{ loop.index }} we-recommend__js-target"
+                                data-recommend-item="{{ loop.index }}"
+                                style="background-image:url({{ item.sibImage ? item.sibImage.one.url : '/images/placeholder-house.jpg' }})"
+                        >
+                            <div class="sib-we-recommend__content">
+                                <h3>{{ item.sibTitle }}</h3>
+                                <div class="sib-we-recommend__subTitle">
+                                    {% switch loopIndex %}
+
+                                        {% case 1 %}
+                                            STYLE
+
+                                        {% case 2 %}
+                                            INSTALLATION TYPE
+
+                                        {% case 3 %}
+                                            SURFACE
+
+                                    {% endswitch %}
+                                </div>
+                                <div class="sib-we-recommend__text">
+                                    {{ item.sibText }}
+                                </div>
+                            </div>
+                            <div class="sib-we-recommend__button">
+                                {% include "/partials/_hover-element" with {
+                                    element: "button",
+                                    classes: "btn btn-v2 btn-white btn-border-thin we-recommend__js-trigger",
+                                    text: "Choose "~item.sibTitle,
+                                    link: ""
+                                } %}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="sib-half-link__background">
+                        {% for item in items %}
+                            <div style="background-image:url({{ item.sibImage ? item.sibImage.one.url : '/images/placeholder-house.jpg' }});"></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="row sib-we-recommend__inner sib-we-recommend__result">
+            {% for item in recommendBlock.results.all %}
+                <div
+                        class="col-md-6 sib-we-recommend__result__item sib-half-link__item"
+                        data-result="{{ item.sibType.value }}"
+                        style="background-image:url({{ item.sibImage.one ? item.sibImage.one.url : "/images/DH.jpg" }})"
+                >
+                    <div class="sib-we-recommend__content">
+                        <h3>{{ item.sibTitle }}</h3>
+                        <div class="sib-we-recommend__subTitle">
+                            {{ item.subtitle }}
+                        </div>
+                        <div class="sib-we-recommend__text">
+                            {{ item.text }}
+                        </div>
+                    </div>
+                    <div class="sib-we-recommend__button">
+                        {% include "/partials/_hover-element" with {
+                            element: "a",
+                            classes: "btn btn-v1 btn-white btn-border-thin",
+                            text: item.button.text,
+                            link: item.button.url
+                        } %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
